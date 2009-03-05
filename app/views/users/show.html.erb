@@ -10,7 +10,7 @@
 
 <%= h(@user.identity_url) %>
 
-<h3>from h(@user.disp_name)</h3>
+<h3>from <%= h(@user.disp_name) -%></h3>
 <%= render :partial => "patches/list",
    :locals =>
      { :patches => @patches,
