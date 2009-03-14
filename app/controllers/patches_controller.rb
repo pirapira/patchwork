@@ -51,7 +51,7 @@ class PatchesController < ApplicationController
     end
     @patch = Patch.new(params[:patch])
     @patch.user = current_user
-    if old_version = Patch.find(@patch.id)
+    if old_version = Patch.find(params[:id])
       @patch.parent_id = old_version.id
     else
       raise "invalid"
