@@ -1,4 +1,5 @@
 <%= title "See Patch", :h2 %>
+<div style="border: 1px solid orange">
 <pre>
   <%= h(@patch.content) %>
 </pre>
@@ -13,4 +14,18 @@
   based on <%= link_to @patch.parent.content,  :id => @patch.parent_id %>
 </p>
 <% end # parent %>
-<%= link_to 'fork this', edit_patch_path %>
+<p><%= link_to 'fork this', edit_patch_path %></p>
+</div>
+
+<p>continuation</p>
+<% patches = @patch.post %>
+
+<% if @patches.empty? -%>    
+ <p>There are no patches</p>  
+<% else -%>    
+ <% @patches.each do |patch| -%>      
+   <p>        
+     <%= link_to h(patch.content), patch_path(patch) -%>      
+   </p>    
+ <% end -%>  
+<% end -%>
