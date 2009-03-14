@@ -1,9 +1,8 @@
 <%= title "See Patch", :h2 %>
-<p>continuation</p>
 <% patches = @patch.before_patches %>
 
 <% if patches.empty? -%>    
- <p>There are no prepatches</p>  
+ <p>(there are nothing before)</p>  
 <% else -%>    
  <% patches.each do |patch| -%>      
    <p>        
@@ -12,13 +11,16 @@
  <% end -%>  
 <% end -%>
 
+<p style="margin-bottom: 0.5em">
+<%= link_to 'add before',
+    :action => :new, :postpatch_id => @patch.id -%></p>
 
-<div style="border: 1px solid orange">
-<pre><%= h(@patch.content) %></pre>
-<p>
-  by <%= h(@patch.user.disp_name) -%>.
-</p>
-<p>
+
+<div style="border: 1px solid orange; width: 30em; float: left;
+	    margin-top: 0">
+<pre style="font-size: 120%"><%= h(@patch.content) %></pre>
+<p style="font-size: 80%; margin-top: 0; margin-bottom: 0">
+  by <%= h(@patch.user.disp_name) -%> 
   at <%= h(@patch.created_at) -%>.
 </p>
 <% if @patch.parent %>
@@ -26,19 +28,22 @@
   based on <%= link_to @patch.parent.content,  :id => @patch.parent_id %>
 </p>
 <% end # parent %>
-<p><%= link_to 'fork this', edit_patch_path %></p>
 </div>
+<p><%= link_to 'fork', edit_patch_path %></p>
 
-<p>continuation</p>
+<p style="clear: left; padding-top: 0.5em;"><%= link_to 'add after',
+						:action => :new, :prepatch_id => @patch.id -%></p>
+
+
 <% patches = @patch.after_patches %>
 
 <% if patches.empty? -%>    
- <p>There are no postpatches</p>  
+ <p>(there are nothing after)</p>  
 <% else -%>    
  <% patches.each do |patch| -%>      
    <p>        
      <%= link_to h(patch.content), patch_path(patch) -%>      
    </p>    
- <% end -%>  
+ <% end -%>
 <% end -%>
 

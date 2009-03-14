@@ -4,6 +4,8 @@ class PatchesController < ApplicationController
   def new
     if logged_in?
       @patch = Patch.new
+      @prepatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:prepatch_id]])
+      @postpatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:postpatch_id]])
     else
       flash[:error] = 'Please login first'
       redirect_back_or_default(root_path)
@@ -21,6 +23,12 @@ class PatchesController < ApplicationController
     @patch.user = current_user
     @patch.parent_id = nil
     @patch.save!
+
+    postpatch = Patch.find(params[:postpatch][:id]) if params[:postpatch]
+    prepatch = Patch.find(params[:prepatch][:id]) if params[:prepatch]
+    @patch.postpatches << postpatch if postpatch
+    @patch.prepatches << prepatch if prepatch
+
     flash[:notice] = "saved your patch"
     redirect_back_or_default(root_path)
   end

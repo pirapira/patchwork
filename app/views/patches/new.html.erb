@@ -1,8 +1,43 @@
 <%= title "Create Patch", :h2 %>
+
+<% if @prepatch %>
+<div style="border: 1px solid orange; width: 30em; 
+	    margin-top: 0">
+<pre style="font-size: 120%"><%= h(@prepatch.content) %></pre>
+<p style="font-size: 80%; margin-top: 0; margin-bottom: 0">
+  by <%= h(@prepatch.user.disp_name) -%> 
+  at <%= h(@prepatch.created_at) -%>.
+</p>
+<% if @prepatch.parent %>
+<p>
+  based on <%= link_to @prepatch.parent.content,  :id => @prepatch.parent_id %>
+</p>
+<% end # parent %>
+</div>
+<% end # prepatch %>
+
 <% form_for @patch do |f| %>
 	<%= f.error_messages %>
 	<%= f.text_area :content %>
 	<div class="buttons">
 	  <%= submit_tag 'put' %> under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a>.
 	</div>
+	<%= hidden_field(:prepatch, :id) if @prepatch %>
+	<%= hidden_field(:postpatch, :id) if @postpatch %>
 <% end %>
+
+<% if @postpatch %>
+<div style="border: 1px solid orange; width: 30em; 
+	    margin-top: 0">
+<pre style="font-size: 120%"><%= h(@postpatch.content) %></pre>
+<p style="font-size: 80%; margin-top: 0; margin-bottom: 0">
+  by <%= h(@postpatch.user.disp_name) -%> 
+  at <%= h(@postpatch.created_at) -%>.
+</p>
+<% if @postpatch.parent %>
+<p>
+  based on <%= link_to @postpatch.parent.content,  :id => @postpatch.parent_id %>
+</p>
+<% end # parent %>
+</div>
+<% end # postpatch %>
