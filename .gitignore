@@ -13,3 +13,7 @@ db/*.sqlite3/.rake_tasks
 /app/views/patches/index.html.erb~
 /db/schema.rb
 /db/migrate/20090314101912_add_parent_patch.rb~
+/db/migrate/20090314115859_add_role_authenticated.rb~
+/app/models/prepost.rb~
+/db/migrate/20090314124915_create_prepatches_postpatches.rb~
+/db/migrate/20090314125431_create_preposts.rb~

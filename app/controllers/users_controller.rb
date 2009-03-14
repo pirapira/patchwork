@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     case
     when (!params[:activation_code].blank?) && user && !user.active?
       user.activate!
+      @user.roles << Role.find(:first, :conditions => [ "name = ?",  'authenticated'])
       flash[:notice] = "Signup complete! Please sign in to continue."
       redirect_to login_path
     when params[:activation_code].blank?
@@ -46,12 +47,20 @@ class UsersController < ApplicationController
       if @user.not_using_openid?
         @user.register!
       else
+        @user.roles << Role.find(:first, :conditions => [ "name = ?",  'authenticated'])
         @user.register_openid!
       end
     end
     
     if @user.errors.empty?
-      successful_creation(@user)
+      if @user.not_using_openid?
+        successful_creation(@user)
+      else
+        new_cookie_flag = (params[:remember_me] == "1")
+        handle_remember_cookie! new_cookie_flag
+        redirect_back_or_default(root_path)
+        flash[:notice] = "Logged in successfully"
+      end
     else
       failed_creation
     end
