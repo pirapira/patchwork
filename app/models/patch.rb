@@ -11,4 +11,12 @@ class Patch < ActiveRecord::Base
 
   # Validations
   validates_presence_of :user
+
+  def before_patches
+    prepatches
+  end
+
+  def after_patches
+    postpatches
+  end
 end

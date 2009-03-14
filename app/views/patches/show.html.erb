@@ -1,4 +1,18 @@
 <%= title "See Patch", :h2 %>
+<p>continuation</p>
+<% patches = @patch.before_patches %>
+
+<% if patches.empty? -%>    
+ <p>There are no prepatches</p>  
+<% else -%>    
+ <% patches.each do |patch| -%>      
+   <p>        
+     <%= link_to h(patch.content), patch_path(patch) -%>      
+   </p>    
+ <% end -%>  
+<% end -%>
+
+
 <div style="border: 1px solid orange">
 <pre>
   <%= h(@patch.content) %>
@@ -18,12 +32,12 @@
 </div>
 
 <p>continuation</p>
-<% patches = @patch.post %>
+<% patches = @patch.after_patches %>
 
-<% if @patches.empty? -%>    
- <p>There are no patches</p>  
+<% if patches.empty? -%>    
+ <p>There are no postpatches</p>  
 <% else -%>    
- <% @patches.each do |patch| -%>      
+ <% patches.each do |patch| -%>      
    <p>        
      <%= link_to h(patch.content), patch_path(patch) -%>      
    </p>    
