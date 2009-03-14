@@ -9,3 +9,4 @@ db/*.sqlite3/.rake_tasks
 /db/development.sqlite3
 /app/views/patches/new.html.erb~
 /db/migrate/.#20090314051918_create_patches.rb
+/app/views/patches/show.html.erb~

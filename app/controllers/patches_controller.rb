@@ -12,4 +12,8 @@ class PatchesController < ApplicationController
     flash[:notice] = "saved your patch"
     redirect_back_or_default(root_path)
   end
+
+  def show
+    @patch = Patch.find(params[:id])
+  end
 end
