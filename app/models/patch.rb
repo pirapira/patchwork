@@ -3,11 +3,11 @@ class Patch < ActiveRecord::Base
   # Relationships
   belongs_to :user
   belongs_to :parent, :class_name => "Patch", :foreign_key => "parent_id"
-  has_many :preposts, :foreign_key => 'pre_id'
-  has_many :preposts, :foreign_key => 'post_id'
+  has_many :ahead_preposts, :class_name => "Prepost", :foreign_key => 'prepatch_id'
+  has_many :behind_preposts, :class_name => "Prepost", :foreign_key => 'postpatch_id'
   
-  has_many :pre, :through => :preposts
-  has_many :post, :through => :preposts
+  has_many :prepatches, :class_name => "Patch", :through => :behind_preposts, :foreign_key => 'prepatch_id'
+  has_many :postpatches, :class_name => "Patch", :through => :ahead_preposts, :foreign_key => 'postpatch_id'
 
   # Validations
   validates_presence_of :user
