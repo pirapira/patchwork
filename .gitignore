@@ -4,4 +4,6 @@ tmp/**/*
 doc/api
 doc/app
 coverage
-db/*.sqlite3
+db/*.sqlite3/.rake_tasks
+/.rake_tasks
+/db/development.sqlite3
