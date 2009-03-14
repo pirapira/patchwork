@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :patches
   
   # Home Page
-  map.root :controller => 'sessions', :action => 'new'
+  map.root :controller => 'patches', :action => 'index'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action'
