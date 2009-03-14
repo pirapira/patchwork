@@ -8,4 +8,9 @@
 <p>
   at <%= h(@patch.created_at) -%>.
 </p>
-
+<% if @patch.parent %>
+<p>
+  based on <%= link_to @patch.parent.content,  :id => @patch.parent_id %>
+</p>
+<% end # parent %>
+<%= link_to 'fork this', edit_patch_path %>
