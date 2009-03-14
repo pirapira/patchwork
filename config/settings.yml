@@ -1,7 +1,7 @@
 development: &non_production_settings
   site_url: http://localhost:3000
   site_name: Bort
-  admin_email: bort@bort.com
+  admin_email: yhirai@pira.jp
   
 test:
   <<: *non_production_settings
@@ -9,9 +9,9 @@ test:
 staging:
   site_url: http://staging.example.com
   site_name: Bort
-  admin_email: bort@bort.com  
+  admin_email: yhirai@pira.jp
   
 production:
   site_url: http://www.example.com
   site_name: Bort
-  admin_email: bort@bort.com
+  admin_email: yhirai@pira.jp
