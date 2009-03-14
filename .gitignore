@@ -11,3 +11,4 @@ db/*.sqlite3/.rake_tasks
 /db/migrate/.#20090314051918_create_patches.rb
 /app/views/patches/show.html.erb~
 /app/views/patches/index.html.erb~
+/db/schema.rb
