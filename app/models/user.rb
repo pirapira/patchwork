@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
     new_record? ? not_using_openid? && (crypted_password.blank? || !password.blank?) : !password.blank?
   end
 
+  def disp_name
+    if name.empty? then
+      "(no name)"
+    else
+      name
+    end
+  end
+
   protected
     
   def make_activation_code
