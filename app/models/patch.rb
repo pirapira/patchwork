@@ -1,7 +1,7 @@
 class Patch < ActiveRecord::Base
   
   # Relationships
-  belong_to :user
+  belongs_to :user
 
   # Validations
   validates_presence_of :user
