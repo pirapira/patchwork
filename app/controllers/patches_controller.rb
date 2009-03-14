@@ -16,4 +16,8 @@ class PatchesController < ApplicationController
   def show
     @patch = Patch.find(params[:id])
   end
+  
+  def index
+    @patches = Patch.find(:all)
+  end
 end

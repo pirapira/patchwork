@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'sessions', :action => 'new'
 
   # Install the default routes as the lowest priority.
+  map.connect ':controller/:action'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
