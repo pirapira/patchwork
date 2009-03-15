@@ -9,7 +9,7 @@ xml.rss(:version=>"2.0"){
         xml.item do
         xml.title(p.summary)
         xml.description(p.content)
-        xml.author(p.user.name)
+        xml.author(h(p.user.disp_name))
         xml.pubDate(p.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
         xml.link(APP_CONFIG[:site_url]+patch_path(p))
         xml.guid(APP_CONFIG[:site_url]+patch_path(p))
