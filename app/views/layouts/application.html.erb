@@ -22,6 +22,9 @@
 					<% if logged_in? %>
 					<%= link_to 'Logout', logout_path,
     {:class => :action_l} %>
+					<%= link_to 'Me',
+     user_path(current_user),
+    {:class => :action_l} %>
 					<% else %>
 					<%= link_to 'Login', login_path,
     {:class => :action_l} %>
@@ -35,5 +38,7 @@
 				<%= yield :layout %>
 			</div>
 		</div>
+		<address class="sub" style="text-align:right"><a href="http://pieces.lighthouseapp.com/projects/27330-patchwork/overview">Patchwork
+		project</a> <a href="http://github.com/pirapira/patchwork/tree/master">repo</a></address>
 	</body>
 </html>

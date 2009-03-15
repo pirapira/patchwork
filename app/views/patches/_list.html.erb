@@ -9,6 +9,7 @@
      <td><%= link_to h(patch.summary), patch_path(patch), {:class => :elm} -%></td>
      <td class="sub"><%= link_to h(timeago patch.created_at), patch_path(patch),
      {:class => :elm} -%></td>
+     <td class="sub"><%= link_to "by "+patch.user.disp_name, user_path(patch.user), {:class => :elm} -%></td>
    </tr>    
  <% end -%>
 </table>

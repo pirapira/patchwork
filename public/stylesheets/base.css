@@ -1,10 +1,10 @@
 /* === FLASH MESSAGES === */
 div#flash-notice {
-	
+ color: #3333ff; background-color: #ccccff; border: solid #3333ff 1px; text-decoration: none; padding: 2px;
 }
 
 div#flash-warning {
-	
+ color: #ff3333; background-color: #ffcccc; border: solid #ff3333 1px; text-decoration: none; padding: 2px;
 }
 
 div#flash-error {

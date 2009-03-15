@@ -33,18 +33,18 @@ class User < ActiveRecord::Base
     u = find_in_state :first, :active, :conditions => { :login => login } # need to get the salt
     u && u.authenticated?(password) ? u : nil
   end
-  
+
   # Check if a user has a role.
   def has_role?(role)
     list ||= self.roles.map(&:name)
     list.include?(role.to_s) || list.include?('admin')
   end
-  
+
   # Not using open id
   def not_using_openid?
     identity_url.blank?
   end
-  
+
   # Overwrite password_required for open id
   def password_required?
     new_record? ? not_using_openid? && (crypted_password.blank? || !password.blank?) : !password.blank?
