@@ -1,9 +1,11 @@
-<%= title "Browse", :h2 %>
+<%= title "Browse", :h2 %> 
+
 
 <%= render :partial => "list",
    :locals =>
      { :patches => @patches,
        :nothing => '(nothing yet)',
-       :post => true, :pagenum => :page
+       :postonly => true, :pagenum => :page
       } %>
 
+<p>(newest first)</p>
