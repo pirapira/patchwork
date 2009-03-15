@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def feed
+    @user = User.find(params[:id])
     @patches = Patch.find(:all, :limit => 20, :order => "created_at DESC",
                           :conditions => ["user_id = ?", params[:id]])
     render :layout => false
