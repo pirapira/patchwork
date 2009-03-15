@@ -2,7 +2,8 @@
 <ul>
 <li><% form_tag session_path do %>
 				<%= label_tag 'openid_url', 'OpenID URL' %>
-				<%= text_field_tag 'openid_url' %>
+				<%= text_field_tag 'openid_url',
+	{},      {:focus => true} %>
 		<%= submit_tag 'Login', {:class => :action} %>
 <% end %></li>
 <li style="margin-top: 2em;">
