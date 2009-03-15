@@ -53,6 +53,7 @@ class Patch < ActiveRecord::Base
     searched = searched + [self]
 
     r = self.send met
+    r = r.sort { |a,b| b.created_at <=> a.created_at }
     self.forks.each { |p| r += p.possible_inner searched, met }
     r += self.parent.possible_inner searched, met if self.parent
 
