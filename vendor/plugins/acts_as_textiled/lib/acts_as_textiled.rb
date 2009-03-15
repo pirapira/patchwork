@@ -1,4 +1,4 @@
-module Err 
+module Err
   module Acts #:nodoc: all
     module Textiled
       include ActionView::Helpers::TagHelper
