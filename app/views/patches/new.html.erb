@@ -7,7 +7,7 @@
 
 <% end # prepatch %>
 
-<% form_for @patch, {:class => "formy"} do |f| %>
+<% form_for @patch do |f| %>
 	<%= f.error_messages %>
 	<%= text_area :patch, :content, {:style => "width: 30em",
        :focus => true} %>
