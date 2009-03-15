@@ -19,4 +19,8 @@ class Patch < ActiveRecord::Base
   def after_patches
     postpatches
   end
+
+  def summery
+    content
+  end
 end
