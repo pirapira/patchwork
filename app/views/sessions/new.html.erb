@@ -5,7 +5,7 @@
 				<%= text_field_tag 'openid_url',
 	{},      {:focus => true} %>
 		<%= submit_tag 'Login', {:class => :action} %>
-<% end %></li>
+<% end %><br />for example, http://www.hatena.ne.jp/name/</li>
 <li style="margin-top: 2em;">
 <% form_tag session_path do %>
 <%= hidden_field_tag :openid_url, 'https://mixi.jp/' %>
