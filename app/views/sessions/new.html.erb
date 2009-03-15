@@ -1,6 +1,16 @@
 <%= title "Login", :h2 %>
-<% form_tag session_path do %>
+<ul>
+<li><% form_tag session_path do %>
 				<%= label_tag 'openid_url', 'OpenID URL' %>
 				<%= text_field_tag 'openid_url' %>
 		<%= submit_tag 'Login', {:class => :action} %>
-<% end -%>
+<% end %></li>
+<li style="margin-top: 2em;">
+<% form_tag session_path do %>
+<%= hidden_field_tag :openid_url, 'https://mixi.jp/' %>
+if you are a mixi member, try
+<%= image_submit_tag "b_150.gif" %>
+<% end %>
+</li>
+</ul>
+

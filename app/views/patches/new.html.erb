@@ -1,4 +1,4 @@
-<%= title "Create Patch", :h2 %>
+<%= title "Write", :h2 %>
 
 <% if @prepatch %>
 
@@ -18,8 +18,8 @@
 	<%= hidden_field(:postpatch, :id) if @postpatch %>
 <% end %>
 </div>
-<p><%= link_to 'textile', 'http://hobix.com/textile/quick.html', :popup =>
-	true %> markup available.</p>
+<p>(<%= link_to 'textile', 'http://hobix.com/textile/quick.html', :popup =>
+	true %> markup available.)</p>
 <p style="clear:left">anything put here will be under <a rel="license"
  href="http://creativecommons.org/licenses/by-sa/3.0/us/"
 ><img alt="Creative Commons License"
