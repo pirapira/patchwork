@@ -1,6 +1,6 @@
-<div style="border: 1px solid orange; width: 30em;
- <%= if defined? float then 'float: left;' end -%>
-	    margin-top: 0">
+<div class="centralbox"
+ <%= if defined? float then 'style="float: left;"' end -%>
+>
 <%= patch.content -%>
 <p class="sub">
   by <%= h(patch.user.disp_name) -%>

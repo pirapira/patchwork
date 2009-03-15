@@ -1,9 +1,6 @@
-<%= title "Browse Patches", :h2 %>
+<%= title "Browse", :h2 %>
 
-<%= link_to 'write new', new_patch_path %>  
+<%= link_to 'write new', new_patch_path,
+    {:class => :action}%>  
 <hr />  
-<%= render :partial => "list",
-   :locals => 
-     { :patches => @patches,
-       :nothing => 'There are no patches.' } %>
-
+<%= will_paginate @patches %>

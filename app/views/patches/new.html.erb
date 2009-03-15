@@ -7,19 +7,24 @@
 
 <% end # prepatch %>
 
+<div style="float: left; width: 30em">
 <% form_for @patch do |f| %>
 	<%= f.error_messages %>
-<%= link_to 'textile', 'http://textile.thresholdstate.com/', :popup => true %> <br />
-	<%= text_area :patch, :content %>
+	<%= text_area :patch, :content, {:style => "width: 30em"} %>
 	<div class="buttons">
-	<%= submit_tag 'put', {:style => 'font-size: 200%'} %> under <a rel="license"
- href="http://creativecommons.org/licenses/by-sa/3.0/us/"
-><img alt="Creative Commons License"
- style="border-width:0" src="/images/lic.png" /></a>.
+	<%= submit_tag 'put', {:style => 'font-size: 200%'} %>
 	</div>
 	<%= hidden_field(:prepatch, :id) if @prepatch %>
 	<%= hidden_field(:postpatch, :id) if @postpatch %>
 <% end %>
+</div>
+<p><%= link_to 'textile', 'http://hobix.com/textile/quick.html', :popup =>
+	true %> markup available.</p>
+<p style="clear:left">anything put here will be under <a rel="license"
+ href="http://creativecommons.org/licenses/by-sa/3.0/us/"
+><img alt="Creative Commons License"
+ style="border-width:0" src="/images/lic.png" /></a>.</p>
+
 
 <% if @postpatch %>
 <%= render :partial => 'centralbox',

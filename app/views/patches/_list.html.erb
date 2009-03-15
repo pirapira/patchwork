@@ -1,9 +1,5 @@
 <% if patches.empty? -%>    
  <p><%= nothing -%></p>  
 <% else -%>    
- <% patches.each do |patch| -%>      
-   <p>        
-     <%= link_to h(patch.summary), patch_path(patch) -%>      
-   </p>    
- <% end -%>  
+  <%= will_paginate patches -%>
 <% end -%>

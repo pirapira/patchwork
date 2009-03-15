@@ -47,7 +47,8 @@ class PatchesController < ApplicationController
   end
 
   def index
-    @patches = Patch.find(:all, :order => "created_at DESC")
+    @patches_p = Patch.find(:all, :order => "created_at DESC")
+    @patches = Patch.paginate :page => params[:page]
   end
 
   def update

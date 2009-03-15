@@ -47,7 +47,22 @@ div.fieldWithErrors textarea
 	
 }
 
+body
+{
+ color: #000033; background-color: #cccccc; font-family: sans-serif;
+}
+
 p.sub
 {
- font-size: 80%; margin-top: 0; margin-bottom: 0; color: purple;
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #9999ff;
+}
+
+a.action
+{
+ color: white; background-color: blue; text-decoration: none; padding: 2px;
+}
+
+div.centralbox
+{
+    margin-top: 0; border: 1px solid #9999ff; width: 30em; background-color: #ccccff;
 }

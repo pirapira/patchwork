@@ -1,29 +1,34 @@
-<%= title @patch.summary, :h2 %>
+<% title @patch.summary %>
 
 <%= render :partial => "list",
-   :locals => 
+   :locals =>
      { :patches => @patch.before_patches,
        :nothing => '(nothing before)' } %>
 
 <p style="margin-bottom: 0.5em">
-<%= link_to 'add before',
-    :action => :new, :postpatch_id => @patch.id -%></p>
+<%= link_to 'add beforeward',
+    {:action => :new, :postpatch_id => @patch.id},
+    {:class => 'action'}
+-%></p>
 
 <%= render :partial => 'centralbox',
-           :locals => { :float => true, :patch => @patch } %>
-<p><%= link_to 'add fork', edit_patch_path %></p>
+	   :locals => { :float => true, :patch => @patch } %>
+<p><%= link_to 'fork', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
-   :locals => 
+   :locals =>
      { :patches => @patch.forks,
        :nothing => '(no forks)' } %>
 
-<p style="clear: left; padding-top: 0.5em;"><%= link_to 'add after',
-						:action => :new, :prepatch_id => @patch.id -%></p>
+<p style="clear: left; padding-top: 0.5em;">
+<%= link_to 'add afterward',
+    {:action => :new, :prepatch_id => @patch.id},
+    {:class => 'action'}
+ -%></p>
 
 
 <%= render :partial => "list",
-   :locals => 
+   :locals =>
      { :patches => @patch.after_patches,
        :nothing => '(nothing after)' } %>
 
