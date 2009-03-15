@@ -57,6 +57,11 @@ body
  font-size: 80%; margin-top: 0; margin-bottom: 0; color: #336633; text-decotation: none;
 }
 
+a.sub
+{
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #336633; text-decotation: none;
+}
+
 a.action, input.action
 {
  color: #ffffcc; background-color: #336633; text-decoration: none; padding: 2px; border: 0;
