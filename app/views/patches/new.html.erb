@@ -7,8 +7,7 @@
 
 <% end # prepatch %>
 
-<div style="float: left; width: 30em">
-<% form_for @patch do |f| %>
+<% form_for @patch, {:class => "formy"} do |f| %>
 	<%= f.error_messages %>
 	<%= text_area :patch, :content, {:style => "width: 30em",
        :focus => true} %>
@@ -18,7 +17,6 @@
 	<%= hidden_field(:prepatch, :id) if @prepatch %>
 	<%= hidden_field(:postpatch, :id) if @postpatch %>
 <% end %>
-</div>
 <p>(<%= link_to 'textile', 'http://hobix.com/textile/quick.html', :popup =>
 	true %> markup available.)</p>
 <p style="clear:left">anything put here will be under <a rel="license"

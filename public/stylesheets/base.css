@@ -76,3 +76,8 @@ div.centralbox
 {
     text-decoration: none; color: #336633; background-color: #ffffcc;
 }
+
+form.formy
+{
+float: left; width: 30em
+}
