@@ -44,11 +44,13 @@ class PatchesController < ApplicationController
 
   def show
     @patch = Patch.find(params[:id])
+    @prepatches = @patch.before_patches.paginate(:per_page => 5, :page => params[:prepage])
+    @postpatches = @patch.after_patches.paginate(:per_page => 5, :page => params[:postpage])
+    @forks = @patch.forks.paginate(:per_page => 5, :page => params[:forkpage])
   end
 
   def index
-    @patches_p = Patch.find(:all, :order => "created_at DESC")
-    @patches = Patch.paginate :page => params[:page]
+    @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 10
   end
 
   def update

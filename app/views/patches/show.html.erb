@@ -2,8 +2,10 @@
 
 <%= render :partial => "list",
    :locals =>
-     { :patches => @patch.before_patches,
-       :nothing => '(nothing before)' } %>
+     { :patches => @prepatches,
+       :nothing => '(nothing before)',
+       :pagenum => :prepage
+ } %>
 
 <p style="margin-bottom: 0.5em">
 <%= link_to 'add beforeward',
@@ -17,8 +19,10 @@
 
 <%= render :partial => "list",
    :locals =>
-     { :patches => @patch.forks,
-       :nothing => '(no forks)' } %>
+     { :patches => @forks,
+       :nothing => '(no forks)',
+       :pagenum => :forkpage
+ } %>
 
 <p style="clear: left; padding-top: 0.5em;">
 <%= link_to 'add afterward',
@@ -29,8 +33,11 @@
 
 <%= render :partial => "list",
    :locals =>
-     { :patches => @patch.after_patches,
-       :nothing => '(nothing after)' } %>
+     { :patches => @postpatches,
+       :nothing => '(nothing after)',
+       :pagenum => :postpage,
+       :postonly => true
+ } %>
 
 
 

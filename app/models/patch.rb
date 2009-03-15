@@ -19,12 +19,14 @@ class Patch < ActiveRecord::Base
 
   def before_patches
     inner = possible_inner [], :prepatches
-    return inner.uniq
+    r = inner.uniq
+    return r
   end
 
   def after_patches
     inner = possible_inner [], :postpatches
-    return inner.uniq
+    r = inner.uniq
+    return r
   end
 
   def forks

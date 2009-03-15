@@ -1,5 +1,15 @@
+<%= will_paginate patches, :previous_label => '<<', :next_label =>
+    '>>', :param_name => pagenum unless defined? postonly %>
 <% if patches.empty? -%>    
  <p><%= nothing -%></p>  
 <% else -%>    
-  <%= will_paginate patches -%>
+ <% patches.each do |patch| -%>      
+   <p>        
+     <%= link_to h(patch.summary), patch_path(patch) -%>
+     <span class="sub"><%= patch.created_at -%></sub>
+   </p>    
+ <% end -%>
 <% end -%>
+<%= will_paginate patches, :previous_label => '<<', :next_label =>
+    '>>', :param_name => pagenum  if (defined? post or defined? postonly)
+%>

@@ -52,17 +52,22 @@ body
  color: #000033; background-color: #cccccc; font-family: sans-serif;
 }
 
-p.sub
+.sub
 {
- font-size: 80%; margin-top: 0; margin-bottom: 0; color: #9999ff;
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #3333ff;
 }
 
 a.action
 {
- color: white; background-color: blue; text-decoration: none; padding: 2px;
+ color: #ccccff; background-color: #3333ff; text-decoration: none; padding: 2px;
+}
+
+a.action_l
+{
+ color: #3333ff; background-color: #ccccff; border: solid #3333ff 1px; text-decoration: none; padding: 2px;
 }
 
 div.centralbox
 {
-    margin-top: 0; border: 1px solid #9999ff; width: 30em; background-color: #ccccff;
+    margin-top: 0; border: 1px solid #3333ff; width: 30em; background-color: #ccccff;
 }

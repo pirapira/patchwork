@@ -6,7 +6,7 @@
 		<meta http-equiv="content-type" content="text/xhtml; charset=utf-8" />
 		<meta http-equiv="imagetoolbar" content="no" />
 		<meta name="distribution" content="all" />
-		<meta name="robots" content="all" />	
+		<meta name="robots" content="all" />
 		<meta name="resource-type" content="document" />
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 		<%= stylesheet_link_tag 'base' %>
@@ -15,15 +15,22 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<ul>
+				<p>
+					<%= link_to 'Top',
+					root_path ,
+    {:class => :action_l}%>
 					<% if logged_in? %>
-					<li><%= link_to 'Logout', logout_path %></li>
+					<%= link_to 'Logout', logout_path,
+    {:class => :action_l} %>
 					<% else %>
-					<li><%= link_to 'Login', login_path %></li>
-					<li><%= link_to 'Signup', signup_path %></li>
+					<%= link_to 'Login', login_path,
+    {:class => :action_l} %>
+					<%= link_to 'Signup', signup_path,
+    {:class => :action} %>
 					<% end %>
-					<li><%= link_to 'Top',	root_path %></li>
-				</ul>
+					<%= link_to 'write new', new_patch_path,
+    {:class => :action}%>
+				</p>
 			</div>
 			<div id="content">
 				<%= flash_messages %>
