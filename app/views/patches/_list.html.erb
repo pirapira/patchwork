@@ -7,7 +7,7 @@
  <% patches.each do |patch| -%>      
    <tr>        
      <td><%= link_to h(patch.summary), patch_path(patch), {:class => :elm} -%></td>
-     <td class="sub"><%= link_to h(patch.created_at), patch_path(patch),
+     <td class="sub"><%= link_to h(timeago patch.created_at), patch_path(patch),
      {:class => :elm} -%></td>
    </tr>    
  <% end -%>
