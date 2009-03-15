@@ -7,7 +7,7 @@
   at <%= h(patch.created_at) -%>.
 <% if @patch.parent %>
 <br />
-  forked from <%= link_to h(patch.parent.summary),  :id => patch.parent_id %>
+  edit on <%= link_to h(patch.parent.summary),  :id => patch.parent_id %>
 <% end # parent %>
 </p>
 </div>

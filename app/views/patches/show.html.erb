@@ -1,5 +1,6 @@
 <% title @patch.summary %>
 
+<div style="margin-top:2em;">
 <%= render :partial => "list",
    :locals =>
      { :patches => @prepatches,
@@ -15,12 +16,12 @@
 
 <%= render :partial => 'centralbox',
 	   :locals => { :float => true, :patch => @patch } %>
-<p><%= link_to 'fork', edit_patch_path, {:class => 'action'} %></p>
+<p><%= link_to 'edit', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
    :locals =>
      { :patches => @forks,
-       :nothing => '(no forks)',
+       :nothing => '(no edits)',
        :pagenum => :forkpage
  } %>
 
@@ -39,5 +40,5 @@
        :postonly => true
  } %>
 
-
+</div>
 

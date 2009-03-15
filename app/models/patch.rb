@@ -35,7 +35,7 @@ class Patch < ActiveRecord::Base
 
   def summary
     ucontent = content(:plain).scan(/./u)
-    size = 18
+    size = 26
     ucontent =
       if ucontent.size < size
       then ucontent
