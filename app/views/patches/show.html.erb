@@ -1,9 +1,9 @@
-<%= title "See Patch", :h2 %>
+<%= title @patch.summary, :h2 %>
 
 <%= render :partial => "list",
    :locals => 
      { :patches => @patch.before_patches,
-       :nothing => '(there are nothing before)' } %>
+       :nothing => '(nothing before)' } %>
 
 <p style="margin-bottom: 0.5em">
 <%= link_to 'add before',
@@ -13,16 +13,21 @@
 <div style="border: 1px solid orange; width: 30em; float: left;
 	    margin-top: 0">
 <pre style="font-size: 120%"><%= h(@patch.content) %></pre>
-<p style="font-size: 80%; margin-top: 0; margin-bottom: 0; text-align: right;">
+<p style="font-size: 80%; margin-top: 0; margin-bottom: 0; ">
   by <%= h(@patch.user.disp_name) -%> 
   at <%= h(@patch.created_at) -%>.
 <% if @patch.parent %>
 <br />
-  forked from <%= link_to h(@patch.parent.summery),  :id => @patch.parent_id %>
+  forked from <%= link_to h(@patch.parent.summary),  :id => @patch.parent_id %>
 <% end # parent %>
 </p>
 </div>
-<p><%= link_to 'fork', edit_patch_path %></p>
+<p><%= link_to 'add fork', edit_patch_path %></p>
+
+<%= render :partial => "list",
+   :locals => 
+     { :patches => @patch.forks,
+       :nothing => '(no forks)' } %>
 
 <p style="clear: left; padding-top: 0.5em;"><%= link_to 'add after',
 						:action => :new, :prepatch_id => @patch.id -%></p>
@@ -31,6 +36,7 @@
 <%= render :partial => "list",
    :locals => 
      { :patches => @patch.after_patches,
-       :nothing => '(there are nothing after)' } %>
+       :nothing => '(nothing after)' } %>
+
 
 
