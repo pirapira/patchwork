@@ -64,7 +64,6 @@ class PatchesController < ApplicationController
   protected
 
   def successful_save
-    flash[:notice] = "saved your patch"
     redirect_to :action => :show, :id => @patch.id
   end
 end
