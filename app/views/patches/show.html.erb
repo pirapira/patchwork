@@ -9,7 +9,7 @@
  } %>
 
 <p style="margin-bottom: 0.5em">
-<%= link_to 'add beforeward',
+<%= link_to 'WRITE before',
     {:action => :new, :postpatch_id => @patch.id},
     {:class => 'action'}
 -%></p>
@@ -26,7 +26,7 @@
  } %>
 
 <p style="clear: left; padding-top: 0.5em;">
-<%= link_to 'add afterward',
+<%= link_to 'WRITE after',
     {:action => :new, :prepatch_id => @patch.id},
     {:class => 'action'}
  -%></p>

@@ -16,7 +16,7 @@
 		<div id="container">
 			<div id="header">
 				<p>
-					<%= link_to 'Top',
+					<%= link_to 'Browse',
 					root_path ,
     {:class => :action_l}%>
 					<% if logged_in? %>
@@ -29,7 +29,7 @@
 					<%= link_to 'Login', login_path,
     {:class => :action_l} %>
 					<% end %>
-					<%= link_to 'write new', new_patch_path,
+					<%= link_to 'WRITE', new_patch_path,
     {:class => :action}%>
 				</p>
 			</div>

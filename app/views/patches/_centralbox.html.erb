@@ -3,7 +3,8 @@
 >
 <%= patch.content -%>
 <p class="sub">
-  by <%= h(patch.user.disp_name) -%>
+  by <%= link_to patch.user.disp_name, user_path(patch.user), {:class =>
+  :action_l} -%>
   at <%= h(patch.created_at) -%>.
 <% if @patch.parent %>
 <br />
