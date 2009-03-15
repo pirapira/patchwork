@@ -3,32 +3,25 @@
 <% if @prepatch %>
 
 <%= render :partial => 'centralbox',
-           :locals  => { :patch => @prepatch } %>
+	   :locals  => { :patch => @prepatch } %>
 
 <% end # prepatch %>
 
 <% form_for @patch do |f| %>
 	<%= f.error_messages %>
-	<%= f.text_area :content %>
+<%= link_to 'textile', 'http://textile.thresholdstate.com/', :popup => true %> <br />
+	<%= text_area :patch, :content %>
 	<div class="buttons">
-	  <%= submit_tag 'put' %> under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a>.
+	<%= submit_tag 'put', {:style => 'font-size: 200%'} %> under <a rel="license"
+ href="http://creativecommons.org/licenses/by-sa/3.0/us/"
+><img alt="Creative Commons License"
+ style="border-width:0" src="/images/lic.png" /></a>.
 	</div>
 	<%= hidden_field(:prepatch, :id) if @prepatch %>
 	<%= hidden_field(:postpatch, :id) if @postpatch %>
 <% end %>
 
 <% if @postpatch %>
-<div style="border: 1px solid orange; width: 30em; 
-	    margin-top: 0">
-<pre style="font-size: 120%"><%= h(@postpatch.content) %></pre>
-<p style="font-size: 80%; margin-top: 0; margin-bottom: 0">
-  by <%= h(@postpatch.user.disp_name) -%> 
-  at <%= h(@postpatch.created_at) -%>.
-</p>
-<% if @postpatch.parent %>
-<p>
-  based on <%= link_to @postpatch.parent.content,  :id => @postpatch.parent_id %>
-</p>
-<% end # parent %>
-</div>
+<%= render :partial => 'centralbox',
+	   :locals  => { :patch => @postpatch } %>
 <% end # postpatch %>

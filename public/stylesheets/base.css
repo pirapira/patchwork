@@ -46,3 +46,8 @@ div.fieldWithErrors textarea
 {
 	
 }
+
+p.sub
+{
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: purple;
+}
