@@ -71,3 +71,8 @@ div.centralbox
 {
     margin-top: 0; border: 1px solid #3333ff; width: 30em; background-color: #ccccff;
 }
+
+.elm
+{
+    text-decoration: none; color: #3333ff; background-color: #cccccc;
+}

@@ -3,12 +3,15 @@
 <% if patches.empty? -%>    
  <p><%= nothing -%></p>  
 <% else -%>    
+<table>
  <% patches.each do |patch| -%>      
-   <p>        
-     <%= link_to h(patch.summary), patch_path(patch) -%>
-     <span class="sub"><%= patch.created_at -%></sub>
-   </p>    
+   <tr>        
+     <td><%= link_to h(patch.summary), patch_path(patch), {:class => :elm} -%></td>
+     <td class="sub"><%= link_to h(patch.created_at), patch_path(patch),
+     {:class => :elm} -%></td>
+   </tr>    
  <% end -%>
+</table>
 <% end -%>
 <%= will_paginate patches, :previous_label => '<<', :next_label =>
     '>>', :param_name => pagenum  if (defined? post or defined? postonly)

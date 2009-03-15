@@ -3,5 +3,7 @@
 <%= render :partial => "list",
    :locals =>
      { :patches => @patches,
-       :nothing => '(nothing yet)' } %>
+       :nothing => '(nothing yet)',
+       :post => true, :pagenum => :page
+      } %>
 
