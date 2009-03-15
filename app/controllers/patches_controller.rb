@@ -1,5 +1,5 @@
 class PatchesController < ApplicationController
-  require_role 'authenticated', :for_all_except => [:show, :index]
+  require_role 'authenticated', :for_all_except => [:show, :index, :feed]
   
   def new
     if logged_in?
@@ -41,6 +41,12 @@ class PatchesController < ApplicationController
 
   def index
     @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 10
+    @rss = { :controller => :patches, :action => :feed}
+  end
+
+  def feed
+    @patches = Patch.find(:all, :limit => 20, :order => "created_at DESC")
+    render :layout => false
   end
 
   def update

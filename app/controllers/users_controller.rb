@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  require_role 'authenticated', :for_all_except => [:show]
+  require_role 'authenticated', :for_all_except => [:show, :feed]
 
   def new
     @user = User.new
@@ -11,6 +11,13 @@ class UsersController < ApplicationController
     @patches = Patch.paginate :page => params[:page],
     :order => "created_at DESC", :per_page => 10,
     :conditions => ["user_id = ?", params[:id]]
+    @rss = { :controller => :users, :action => :feed, :id => params[:id] }
+  end
+
+  def feed
+    @patches = Patch.find(:all, :limit => 20, :order => "created_at DESC",
+                          :conditions => ["user_id = ?", params[:id]])
+    render :layout => false
   end
 
   def update

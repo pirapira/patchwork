@@ -21,3 +21,5 @@ db/*.sqlite3/.rake_tasks
 /app/views/patches/.#new.html.erb
 /app/views/patches/_centralbox.html.erb~
 /app/views/users/show.html.erb~
+/app/views/patches/feed.rxml~
+/app/views/patches/feed.xml.erb~

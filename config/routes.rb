@@ -7,13 +7,15 @@ ActionController::Routing::Routes.draw do |map|
   map.change_password '/change_password/:reset_code', :controller => 'passwords', :action => 'reset'
   map.open_id_complete '/opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
-  
+
+  map.connect ':controller/feed', :action => "feed"
+
   # Restful Authentication Resources
   map.resources :users
   map.resources :passwords
   map.resource :session
   map.resources :patches
-  
+
   # Home Page
   map.root :controller => 'patches', :action => 'index'
 

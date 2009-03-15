@@ -1,6 +1,6 @@
 /* === FLASH MESSAGES === */
 div#flash-notice {
- color: #3333ff; background-color: #ffffcc; border: solid #3333ff 1px; text-decoration: none; padding: 2px;
+ color: #336633; background-color: #ffffcc; border: solid #336633 1px; text-decoration: none; padding: 2px;
 }
 
 div#flash-warning {
@@ -49,30 +49,30 @@ div.fieldWithErrors textarea
 
 body
 {
- color: #000033; background-color: #ffffcc; font-family: sans-serif;
+ color: #003300; background-color: #eeeecc; font-family: sans-serif;
 }
 
 .sub
 {
- font-size: 80%; margin-top: 0; margin-bottom: 0; color: #3333ff;
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #336633;
 }
 
 a.action, input.action
 {
- color: #ffffcc; background-color: #3333ff; text-decoration: none; padding: 2px; border: 0;
+ color: #ffffcc; background-color: #336633; text-decoration: none; padding: 2px; border: 0;
 }
 
 a.action_l
 {
- color: #3333ff; background-color: #ffffcc; border: solid #3333ff 1px; text-decoration: none; padding: 2px;
+ color: #336633; background-color: #ffffcc; border: solid #336633 1px; text-decoration: none; padding: 2px;
 }
 
 div.centralbox
 {
-    margin-top: 0; border: 1px solid #3333ff; width: 30em; background-color: #ffffff;
+    margin-top: 0; border: 1px solid #336633; width: 30em; background-color: #ffffcc;
 }
 
 .elm
 {
-    text-decoration: none; color: #3333ff; background-color: #ffffcc;
+    text-decoration: none; color: #336633; background-color: #ffffcc;
 }

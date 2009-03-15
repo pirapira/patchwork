@@ -18,4 +18,6 @@
        :postonly => true, :pagenum => :page
       } %>
 
-<p>(newest first)</p>
+<p>(newest first) <%= link_to 'rss', {:action => :feed, :id => @user.id}
+-%>
+</p>
