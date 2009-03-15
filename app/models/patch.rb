@@ -44,14 +44,16 @@ class Patch < ActiveRecord::Base
   protected
 
   def possible_inner searched, met
-    if parent_id.nil? || (searched.include? parent) then
-      return (self.send met)
-    else
-      p = parent.send met
-      new_searched = searched + [parent]
-      q = parent.possible_inner new_searched, met
-      return p + q
+    if searched.include? self
+      return []
     end
+    searched = searched + [self]
+
+    r = self.send met
+    self.forks.each { |p| r += p.possible_inner searched, met }
+    r += self.parent.possible_inner searched, met if self.parent
+
+    return r
   end
 
 end

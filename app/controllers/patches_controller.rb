@@ -29,8 +29,7 @@ class PatchesController < ApplicationController
     @patch.postpatches << postpatch if postpatch
     @patch.prepatches << prepatch if prepatch
 
-    flash[:notice] = "saved your patch"
-    redirect_to :action => :show, :id => @patch.id
+    successful_save
   end
   
   def edit
@@ -65,7 +64,13 @@ class PatchesController < ApplicationController
       raise "invalid"
     end
     @patch.save!
+    successful_save
+  end
+
+  protected
+
+  def successful_save
     flash[:notice] = "saved your patch"
-    redirect_back_or_default(root_path)
+    redirect_to :action => :show, :id => @patch.id
   end
 end
