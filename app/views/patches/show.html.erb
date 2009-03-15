@@ -15,12 +15,12 @@
 
 <%= render :partial => 'centralbox',
 	   :locals => { :float => true, :patch => @patch } %>
-<p><%= link_to 'edit', edit_patch_path, {:class => 'action'} %></p>
+<p><%= link_to 'fork', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
    :locals =>
      { :patches => @forks,
-       :nothing => '(no edits)',
+       :nothing => '(no forks)',
        :pagenum => :forkpage
  } %>
 
