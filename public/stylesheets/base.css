@@ -57,9 +57,9 @@ body
  font-size: 80%; margin-top: 0; margin-bottom: 0; color: #3333ff;
 }
 
-a.action
+a.action, input.action
 {
- color: #ccccff; background-color: #3333ff; text-decoration: none; padding: 2px;
+ color: #ccccff; background-color: #3333ff; text-decoration: none; padding: 2px; border: 0;
 }
 
 a.action_l

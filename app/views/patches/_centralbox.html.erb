@@ -7,7 +7,8 @@
   at <%= h(patch.created_at) -%>.
 <% if @patch.parent %>
 <br />
-  edit on <%= link_to h(patch.parent.summary),  :id => patch.parent_id %>
+  edit on <%= link_to h(patch.parent.summary), {:id => patch.parent_id},
+  {:class => :sub} %>
 <% end # parent %>
 </p>
 </div>
