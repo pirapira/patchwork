@@ -1,6 +1,6 @@
 /* === FLASH MESSAGES === */
 div#flash-notice {
- color: #336633; background-color: #ffffcc; border: solid #336633 1px; text-decoration: none; padding: 2px;
+ color: #336633; background-color: #ffffcc; text-decoration: none; padding: 2px;
 }
 
 div#flash-warning {
