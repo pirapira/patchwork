@@ -92,7 +92,7 @@ h2. Misc
 
 h2. Credits
 
-Patchwork is distributed under GPL v.3.
+Patchwork is distributed under MIT License.
 
 Patchwork is based on Bort.
 Bort put together by people at "Fudge":http://www.fudgestudios.com/ 
