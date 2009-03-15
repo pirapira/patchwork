@@ -9,19 +9,8 @@
 <%= link_to 'add before',
     :action => :new, :postpatch_id => @patch.id -%></p>
 
-
-<div style="border: 1px solid orange; width: 30em; float: left;
-	    margin-top: 0">
-<%= @patch.content -%>
-<p style="font-size: 80%; margin-top: 0; margin-bottom: 0; ">
-  by <%= h(@patch.user.disp_name) -%> 
-  at <%= h(@patch.created_at) -%>.
-<% if @patch.parent %>
-<br />
-  forked from <%= link_to h(@patch.parent.summary),  :id => @patch.parent_id %>
-<% end # parent %>
-</p>
-</div>
+<%= render :partial => 'centralbox',
+           :locals => { :float => true, :patch => @patch } %>
 <p><%= link_to 'add fork', edit_patch_path %></p>
 
 <%= render :partial => "list",

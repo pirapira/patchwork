@@ -18,3 +18,5 @@ db/*.sqlite3/.rake_tasks
 /db/migrate/20090314124915_create_prepatches_postpatches.rb~
 /db/migrate/20090314125431_create_preposts.rb~
 /app/views/patches/_list.html.erb~
+/app/views/patches/.#new.html.erb
+/app/views/patches/_centralbox.html.erb~

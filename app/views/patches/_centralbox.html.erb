@@ -1,0 +1,13 @@
+<div style="border: 1px solid orange; width: 30em;
+ <%= if defined? float then 'float: left;' end -%>
+	    margin-top: 0">
+<%= patch.content -%>
+<p style="font-size: 80%; margin-top: 0; margin-bottom: 0; ">
+  by <%= h(patch.user.disp_name) -%>
+  at <%= h(patch.created_at) -%>.
+<% if @patch.parent %>
+<br />
+  forked from <%= link_to h(patch.parent.summary),  :id => patch.parent_id %>
+<% end # parent %>
+</p>
+</div>

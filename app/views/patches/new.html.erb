@@ -1,19 +1,10 @@
 <%= title "Create Patch", :h2 %>
 
 <% if @prepatch %>
-<div style="border: 1px solid orange; width: 30em; 
-	    margin-top: 0">
-<pre style="font-size: 120%"><%= h(@prepatch.content) %></pre>
-<p style="font-size: 80%; margin-top: 0; margin-bottom: 0">
-  by <%= h(@prepatch.user.disp_name) -%> 
-  at <%= h(@prepatch.created_at) -%>.
-</p>
-<% if @prepatch.parent %>
-<p>
-  based on <%= link_to @prepatch.parent.content,  :id => @prepatch.parent_id %>
-</p>
-<% end # parent %>
-</div>
+
+<%= render :partial => 'centralbox',
+           :locals  => { :patch => @prepatch } %>
+
 <% end # prepatch %>
 
 <% form_for @patch do |f| %>
