@@ -1,4 +1,5 @@
 class Patch < ActiveRecord::Base
+  acts_as_textiled :content, :description
 
   # Relationships
   belongs_to :user
@@ -31,10 +32,10 @@ class Patch < ActiveRecord::Base
   end
 
   def summary
-    ucontent = content.scan(/./u)
+    ucontent = content(:plain).scan(/./u)
     size = 18
     ucontent =
-      if ucontent.size < size / 2
+      if ucontent.size < size
       then ucontent
       else ucontent.first(size / 2) + "...".scan(/./u) + ucontent.last(size / 2)
       end
