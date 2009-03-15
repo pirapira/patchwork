@@ -8,7 +8,7 @@
  } %>
 
 <p style="margin-bottom: 0.5em">
-<%= link_to 'WRITE before',
+<%= link_to 'WRITE up',
     {:action => :new, :postpatch_id => @patch.id},
     {:class => 'action'}
 -%></p>
@@ -25,7 +25,7 @@
  } %>
 
 <p style="clear: left; padding-top: 0.5em;">
-<%= link_to 'WRITE after',
+<%= link_to 'WRITE down,
     {:action => :new, :prepatch_id => @patch.id},
     {:class => 'action'}
  -%></p>
