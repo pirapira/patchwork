@@ -25,7 +25,7 @@
 </p>
 <% if @patch.parent %>
 <p>
-  based on <%= link_to @patch.parent.content,  :id => @patch.parent_id %>
+  based on <%= link_to h(@patch.parent.content),  :id => @patch.parent_id %>
 </p>
 <% end # parent %>
 </div>

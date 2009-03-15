@@ -30,7 +30,7 @@ class PatchesController < ApplicationController
     @patch.prepatches << prepatch if prepatch
 
     flash[:notice] = "saved your patch"
-    redirect_back_or_default(root_path)
+    redirect_to :action => :show, :id => @patch.id
   end
   
   def edit
@@ -48,7 +48,7 @@ class PatchesController < ApplicationController
   end
 
   def index
-    @patches = Patch.find(:all)
+    @patches = Patch.find(:all, :order => "created_at DESC")
   end
 
   def update
