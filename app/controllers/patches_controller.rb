@@ -2,15 +2,9 @@ class PatchesController < ApplicationController
   require_role 'authenticated', :for_all_except => [:show, :index, :feed, :new]
   
   def new
-    if logged_in?
-      @patch = Patch.new
-      @prepatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:prepatch_id]])
-      @postpatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:postpatch_id]])
-    else
-      flash[:error] = 'Please login first'
-      redirect_back_or_default(root_path)
-      return
-    end
+    @patch = Patch.new
+    @prepatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:prepatch_id]])
+    @postpatch = Patch.find(:first, :readonly, :conditions => ["id = ?", params[:postpatch_id]])
   end
 
   def create
