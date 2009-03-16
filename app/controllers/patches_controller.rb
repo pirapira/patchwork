@@ -19,8 +19,8 @@ class PatchesController < ApplicationController
     @patch.user = current_user
     @patch.save!
 
-    @patch.postpatches << postpatch if postpatch
-    @patch.prepatches << prepatch if prepatch
+    @patch.postpatches << @postpatch if @postpatch
+    @patch.prepatches << @prepatch if @prepatch
 
     successful_save
   end
