@@ -51,6 +51,15 @@ class SessionsController < ApplicationController
       session[:writing] = nil
       @patch.user = current_user
       @patch.save!
+
+      postpatch = session[:postpatch]
+      prepatch = session[:prepatch]
+      session[:postpatch] = nil
+      session[:prepatch] = nil
+      
+      @patch.postpatches << postpatch if 
+      @patch.prepatches << prepatch if 
+      
       redirect_to :controller => :patches,
         :action => :show, :id => @patch.id
       return

@@ -10,6 +10,8 @@ class PatchesController < ApplicationController
   def create
     @patch = Patch.new(params[:patch])
     @patch.parent_id = nil
+    @postpatch = Patch.find(params[:postpatch][:id]) if params[:postpatch]
+    @prepatch = Patch.find(params[:prepatch][:id]) if params[:prepatch]
     if !logged_in?
       save_tmp_redirect
       return
@@ -17,8 +19,6 @@ class PatchesController < ApplicationController
     @patch.user = current_user
     @patch.save!
 
-    postpatch = Patch.find(params[:postpatch][:id]) if params[:postpatch]
-    prepatch = Patch.find(params[:prepatch][:id]) if params[:prepatch]
     @patch.postpatches << postpatch if postpatch
     @patch.prepatches << prepatch if prepatch
 
@@ -71,6 +71,8 @@ class PatchesController < ApplicationController
 
   def save_tmp_redirect
     session[:writing] = @patch
+    session[:prepatch] = @prepatch
+    session[:postpatch] = @postpatch
     redirect_to :controller => :sessions, :action => :new
   end
 end
