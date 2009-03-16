@@ -52,7 +52,7 @@ class SessionsController < ApplicationController
       @patch.user = current_user
       @patch.save!
       redirect_to :controller => :patches,
-        :action => :show
+        :action => :show, :id => @patch.id
       return
     end
     redirect_back_or_default(root_path)
