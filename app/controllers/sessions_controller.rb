@@ -57,8 +57,8 @@ class SessionsController < ApplicationController
       session[:postpatch] = nil
       session[:prepatch] = nil
       
-      @patch.postpatches << postpatch if 
-      @patch.prepatches << prepatch if 
+      @patch.postpatches << postpatch if postpatch
+      @patch.prepatches << prepatch if prepatch
       
       redirect_to :controller => :patches,
         :action => :show, :id => @patch.id
