@@ -1,5 +1,5 @@
 class PatchesController < ApplicationController
-  require_role 'authenticated', :for_all_except => [:show, :index, :feed, :new]
+  require_role 'authenticated', :for_all_except => [:show, :index, :feed, :new, :create, :edit, :update]
   
   def new
     @patch = Patch.new
@@ -9,8 +9,12 @@ class PatchesController < ApplicationController
 
   def create
     @patch = Patch.new(params[:patch])
-    @patch.user = current_user
     @patch.parent_id = nil
+    if !logged_in?
+      save_tmp_redirect
+      return
+    end
+    @patch.user = current_user
     @patch.save!
 
     postpatch = Patch.find(params[:postpatch][:id]) if params[:postpatch]
@@ -45,12 +49,16 @@ class PatchesController < ApplicationController
 
   def update
     @patch = Patch.new(params[:patch])
-    @patch.user = current_user
     if old_version = Patch.find(params[:id])
       @patch.parent_id = old_version.id
     else
       raise "invalid"
     end
+    if !logged_in?
+      save_tmp_redirect
+      return
+    end
+    @patch.user = current_user
     @patch.save!
     successful_save
   end
@@ -59,5 +67,10 @@ class PatchesController < ApplicationController
 
   def successful_save
     redirect_to :action => :show, :id => @patch.id
+  end
+
+  def save_tmp_redirect
+    session[:writing] = @patch
+    redirect_to :controller => :sessions, :action => :new
   end
 end

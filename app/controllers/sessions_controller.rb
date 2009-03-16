@@ -46,6 +46,15 @@ class SessionsController < ApplicationController
   def successful_login
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
+    if session[:writing]
+      @patch = session[:writing]
+      session[:writing] = nil
+      @patch.user = current_user
+      @patch.save!
+      redirect_to :controller => :patches,
+        :action => :show
+      return
+    end
     redirect_back_or_default(root_path)
     flash[:notice] = "Logged in successfully"
   end
