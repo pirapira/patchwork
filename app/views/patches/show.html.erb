@@ -1,5 +1,6 @@
 <% title @patch.summary %>
 
+<div style="margin-top: 2em">
 <%= render :partial => "list",
    :locals =>
      { :patches => @prepatches,
@@ -38,5 +39,4 @@
        :pagenum => :postpage,
        :postonly => true
  } %>
-
-
+</div>
