@@ -1,5 +1,5 @@
 class PatchesController < ApplicationController
-  require_role 'authenticated', :for_all_except => [:show, :index, :feed]
+  require_role 'authenticated', :for_all_except => [:show, :index, :feed, :new]
   
   def new
     if logged_in?
