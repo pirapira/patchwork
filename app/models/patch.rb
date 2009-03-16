@@ -39,7 +39,7 @@ class Patch < ActiveRecord::Base
     ucontent =
       if ucontent.size < size
       then ucontent
-      else ucontent.first(size / 2) + "...".scan(/./u) + ucontent.last(size / 2)
+      else ucontent.first(size - 3) + "...".scan(/./u)
       end
     return ucontent
   end
