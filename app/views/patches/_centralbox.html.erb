@@ -13,7 +13,8 @@
   at <%= h(patch.created_at) -%>.
   <%= link_to 'link', :controller => 'patches',
     :action => 'show', :id => patch.id %>
-  <%= link_to 'rand', :controller => 'random',
-    :action => 'show', :id => patch.id %>
+  <%= link_to('rand', {:controller => 'random',
+    :action => 'show', :id => patch.id}) unless
+  (patch.after_patches.empty? && patch.before_patches.empty?) %>
 </p>
 </div>
