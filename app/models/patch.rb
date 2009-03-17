@@ -73,19 +73,19 @@ class Patch < ActiveRecord::Base
   end
 
   def random_above cont
-    if prepatches.empty? then
+    if before_patches.empty? then
       cont
     else
-      p = prepatches.rand
+      p = before_patches.rand
       p.random_above([p] + cont)
     end
   end
 
   def random_below cont
-    if postpatches.empty? then
+    if after_patches.empty? then
       cont
     else
-      p = postpatches.rand
+      p = after_patches.rand
       p.random_below(cont + [p])
     end
   end
