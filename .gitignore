@@ -23,3 +23,6 @@ db/*.sqlite3/.rake_tasks
 /app/views/users/show.html.erb~
 /app/views/patches/feed.rxml~
 /app/views/patches/feed.xml.erb~
+/app/controllers/random_controller.rb~
+/app/views/patches/_one.html.erb~
+/app/views/random/index.html.erb~

@@ -20,8 +20,12 @@
 		<div id="container">
 			<div id="header">
 				<p>
-					<%= link_to 'Browse',
+					<%= link_to 'Random',
 					root_path ,
+    {:class => :action_l}%>
+					<%= link_to 'Browse',
+					{:controller => 'patches',
+					:action => 'index' } ,
     {:class => :action_l}%>
 					<% if logged_in? %>
 					<%= link_to 'Logout', logout_path,

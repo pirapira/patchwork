@@ -1,27 +1,23 @@
-<% title @patch.summary %>
-
-<div style="margin-top: 2em">
-  
 <%= render :partial => "list",
    :locals =>
-     { :patches => @prepatches,
+     { :patches => patch.prepatches,
        :nothing => '(nothing above)',
        :pagenum => :prepage
  } %>
 
 <p style="margin-bottom: 0; padding-bottom: 0">
 <%= link_to 'ABOVE',
-    {:action => :new, :postpatch_id => @patch.id},
+    {:action => :new, :postpatch_id => patch.id},
     {:class => 'action'}
 -%></p>
 
 <%= render :partial => 'centralbox',
-	   :locals => { :float => true, :patch => @patch } %>
+	   :locals => { :float => true, :patch => patch } %>
 <p><%= link_to 'FORK', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
    :locals =>
-     { :patches => @forks,
+     { :patches => patch.forks,
        :nothing => '(no forks)',
        :pagenum => :forkpage
  } %>
@@ -40,4 +36,3 @@
        :pagenum => :postpage,
        :postonly => true
  } %>
-</div>

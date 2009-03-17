@@ -44,6 +44,18 @@ class Patch < ActiveRecord::Base
     return ucontent
   end
 
+  def Patch.random_seq
+    all = Patch.find(:all)
+    if all.empty?
+      return []
+    end
+    return all.rand.rseq
+  end
+
+  def rseq
+    random_above([]) + [self] + random_below([])
+  end
+
   protected
 
   def possible_inner searched, met
@@ -58,6 +70,24 @@ class Patch < ActiveRecord::Base
     r += self.parent.possible_inner searched, met if self.parent
 
     return r
+  end
+
+  def random_above cont
+    if prepatches.empty? then
+      cont
+    else
+      p = prepatches.rand
+      p.random_above([p] + cont)
+    end
+  end
+
+  def random_below cont
+    if postpatches.empty? then
+      cont
+    else
+      p = postpatches.rand
+      p.random_below(cont + [p])
+    end
   end
 
 end
