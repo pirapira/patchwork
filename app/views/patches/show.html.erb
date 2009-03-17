@@ -4,19 +4,19 @@
 <%= render :partial => "list",
    :locals =>
      { :patches => @prepatches,
-       :nothing => '(nothing before)',
+       :nothing => '(nothing above)',
        :pagenum => :prepage
  } %>
 
-<p style="margin-bottom: 0.5em">
-<%= link_to 'WRITE up',
+<p style="margin-bottom: 0; padding-bottom: 0">
+<%= link_to 'ABOVE',
     {:action => :new, :postpatch_id => @patch.id},
     {:class => 'action'}
 -%></p>
 
 <%= render :partial => 'centralbox',
 	   :locals => { :float => true, :patch => @patch } %>
-<p><%= link_to 'fork', edit_patch_path, {:class => 'action'} %></p>
+<p><%= link_to 'FORK', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
    :locals =>
@@ -25,8 +25,8 @@
        :pagenum => :forkpage
  } %>
 
-<p style="clear: left; padding-top: 0.5em;">
-<%= link_to 'WRITE down',
+<p style="clear: left; padding-top: 0; margin-top: 0;">
+<%= link_to 'BELOW',
     {:action => :new, :prepatch_id => @patch.id},
     {:class => 'action'}
  -%></p>
@@ -35,7 +35,7 @@
 <%= render :partial => "list",
    :locals =>
      { :patches => @postpatches,
-       :nothing => '(nothing after)',
+       :nothing => '(nothing below)',
        :pagenum => :postpage,
        :postonly => true
  } %>
