@@ -12,6 +12,13 @@ class PatchesController < ApplicationController
     @patch.parent_id = nil
     @postpatch = Patch.find(params[:postpatch][:id]) if params[:postpatch]
     @prepatch = Patch.find(params[:prepatch][:id]) if params[:prepatch]
+
+    if (@postpatch && @prepatch) || (@postpatch && @postpatch.id == @patch.id) ||
+        (@prepatch && @prepatch.id == @patch.id)
+      redirect_to root_path
+      return
+    end
+    
     if !logged_in?
       save_tmp_redirect
       return
