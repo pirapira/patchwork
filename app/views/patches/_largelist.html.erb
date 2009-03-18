@@ -20,6 +20,12 @@
     {:class => 'action'}
  -%></p>
 </div>
+<%= render :partial => "list",
+   :locals =>
+     { :patches => patch.forks,
+       :nothing => '(no forks)',
+       :pagenum => :forkpage
+ } %>
 </div>
  <% end -%>
 <% end -%>
