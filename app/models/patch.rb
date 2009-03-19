@@ -56,6 +56,14 @@ class Patch < ActiveRecord::Base
     random_above([]) + [self] + random_below([])
   end
 
+  def added_below
+    prepatches.detect { |p| p.created_at < created_at }
+  end
+
+  def added_above
+    postpatches.detect { |p| p.created_at < created_at }
+  end
+
   protected
 
   def possible_inner searched, met

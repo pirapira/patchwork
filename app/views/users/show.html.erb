@@ -11,11 +11,11 @@
 <%= h(@user.identity_url) %>
 
 <h3>from <%= h(@user.disp_name) -%></h3>
-<%= render :partial => "patches/list",
+<%= render :partial => "patches/largelist",
    :locals =>
      { :patches => @patches,
        :nothing => '(nothing yet)',
-       :postonly => true, :pagenum => :page
+       :post => true, :pagenum => :page
       } %>
 
 <p>(newest first) <%= link_to 'rss', {:action => :feed, :id => @user.id}

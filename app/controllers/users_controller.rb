@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @patches = Patch.paginate :page => params[:page],
-    :order => "created_at DESC", :per_page => 10,
+    :order => "created_at DESC", :per_page => 5,
     :conditions => ["user_id = ?", params[:id]]
     @rss = { :controller => :users, :action => :feed, :id => params[:id] }
   end
