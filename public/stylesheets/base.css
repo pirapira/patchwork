@@ -49,7 +49,7 @@ div.fieldWithErrors textarea
 
 
 
-body, a
+body
 {
  color: #663; background-color: #cc9; font-family: sans-serif;
 }
@@ -62,6 +62,12 @@ body, a
 {
 
 }
+
+
+a {
+  color: #903;
+}
+
 
 .sub
 {
