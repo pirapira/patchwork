@@ -23,8 +23,7 @@
       } %>
 
 <h3>for <%= h(@user.disp_name) -%></h3>
-<p>(newest first) <%= link_to 'rss', {:action => :for_feed, :id => @user.id}
--%>
+<p>(newest first)
 </p>
 <%= render :partial => "patches/largelist",
    :locals =>
