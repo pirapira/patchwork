@@ -22,36 +22,28 @@ class Patch < ActiveRecord::Base
     r = inner.uniq
     return r
   end
-
   def after_patches
     inner = possible_inner [], :postpatches
     r = inner.uniq
     return r
   end
-
   def forks
     Patch.find(:all, :conditions => ["parent_id = ?", id])
   end
-
   def summary
     ucontent = content(:plain).scan(/./u)
     size = 26
-    ucontent =
-      if ucontent.size < size
-      then ucontent
-      else ucontent.first(size - 3) + "...".scan(/./u)
-      end
-    return ucontent
-  end
-
-  def Patch.random_seq
-    all = Patch.find(:all)
-    if all.empty?
-      return []
+    if ucontent.size < size then
+      ucontent
+    else 
+      ucontent.first(size - 3) + "...".scan(/./u)
     end
-    return all.rand.rseq
   end
-
+  def Patch.random_seq
+    r = Patch.find(:all).rand
+    return [] unless r
+    return r.rseq
+  end
   def rseq
     random_above([]) + [self] + random_below([])
   end
