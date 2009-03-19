@@ -21,7 +21,7 @@
   at <%= link_to h(patch.created_at), :controller => 'patches',
     :action => 'show', :id => patch.id %>.
   <%= link_to('rand', {:controller => 'random',
-    :action => 'show', :id => patch.id}) unless
+    :action => 'show', :id => patch.id}, {:class => "action"}) unless
   (patch.after_patches.empty? && patch.before_patches.empty?) %>
 </p>
 </div>
