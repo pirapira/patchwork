@@ -30,9 +30,8 @@ class Patch < ActiveRecord::Base
   def forks
     Patch.find(:all, :conditions => ["parent_id = ?", id])
   end
-  def summary
+  def summary(size=26)
     ucontent = content(:plain).scan(/./u)
-    size = 26
     if ucontent.size < size then
       ucontent
     else 
@@ -66,7 +65,6 @@ class Patch < ActiveRecord::Base
     self.save!
     return for_whom
   end
-
   protected
 
   def possible_inner searched, met

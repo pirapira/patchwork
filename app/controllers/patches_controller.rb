@@ -73,7 +73,34 @@ class PatchesController < ApplicationController
   protected
 
   def successful_save
+    send_trackback
     redirect_to :action => :show, :id => @patch.id
+  end
+
+  def send_trackback
+    require 'net/http'
+
+    to_url = @patch.trackback_url
+    url = url_for(:action => "show", :id => @patch.id)
+    blog_name =
+      "from " + h(@patch.user.disp_name) + " - " + APP_CONFIG[:site_name]
+    title = @patch.summary
+    excerpt = @patch.summary(120)
+
+    # make address & path form 'to_url'
+    to_url.sub!(/http:\/\//,'')
+    split_url = to_url.split(/\//)
+    address, port = split_url.shift.split(/:/)
+    port = 80 if port =~ /^$/
+    path = '/' + split_url.join('/')
+
+    # make query
+    query = "url=#{url}&blog_name=#{blog_name}" +
+      "&title=#{title}&excerpt=#{excerpt}"
+
+    # make http connection & post query
+    http = Net::HTTP.new(address, port).start
+    response = http.post(path, query)
   end
 
   def save_tmp_redirect
