@@ -55,13 +55,24 @@ class Patch < ActiveRecord::Base
   def rseq
     random_above([]) + [self] + random_below([])
   end
-
   def added_below
     prepatches.detect { |p| p.created_at < created_at }
   end
-
   def added_above
     postpatches.detect { |p| p.created_at < created_at }
+  end
+  def for_whom
+    return User.find(:first, :conditions => ["id = ?", for_cache]) if for_cached
+
+    self.for_cache
+      if parent then parent.user.id
+      elsif added_below then added_below.user.id
+      elsif added_above then added_above.user.id
+      else nil
+      end
+    self.for_cached = true
+    self.save!
+    return for_whom
   end
 
   protected
