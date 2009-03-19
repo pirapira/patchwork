@@ -11,7 +11,7 @@
 
 <div style="clear:left">
 <p style="margin-bottom: 0; padding-bottom: 0">
-<%= link_to 'ABOVE',
+<%= link_to 'ADD ABOVE',
     {:controller => :patches, :action => :new, :postpatch_id => patch.id},
     {:class => 'action'}
 -%></p>
@@ -20,7 +20,7 @@
 <%= render :partial => 'patches/centralbox',
 	   :locals => { :patch => patch } %>
 <p style="clear: left; padding-top: 0; margin-top: 0;">
-<%= link_to 'BELOW',
+<%= link_to 'ADD BELOW',
     {:controller => :patches, :action => :new, :prepatch_id => patch.id},
     {:class => 'action'}
  -%></p>
