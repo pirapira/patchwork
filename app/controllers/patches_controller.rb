@@ -45,7 +45,7 @@ class PatchesController < ApplicationController
   end
 
   def index
-    @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 10
+    @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 5
     @rss = { :controller => :patches, :action => :feed}
   end
 
