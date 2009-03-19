@@ -2,23 +2,22 @@
 <%= patch.content -%>
 <p class="sub">
 <% if patch.parent then %>
-  <%= link_to h("forked from ".scan(/./u) + patch.parent.summary),
+  forked from <%= link_to h(patch.parent.summary),
   {:controller => :patches, :action => :show, :id => patch.parent_id},
   {:class => :sub} %>
 <br />
 <% elsif patch.added_below then %>
-  <%= link_to h("added below ".scan(/./u) + patch.added_below.summary),
+  added below <%= link_to h(patch.added_below.summary),
       {:controller => :patches, :action => :show, :id => patch.added_below.id},
   {:class => :sub} %>
 <br />
 <% elsif patch.added_above then %>
-  <%= link_to h("added above ".scan(/./u) + patch.added_above.summary),
+  added above <%= link_to h(patch.added_above.summary),
       {:controller => :patches, :action => :show, :id => patch.added_above.id},
   {:class => :sub} %>
 <br />
 <% end %>
-  by <%= link_to h(patch.user.disp_name), user_path(patch.user), {:class =>
-  :action_l} -%>
+  by <%= link_to h(patch.user.disp_name), user_path(patch.user) -%>
   at <%= link_to h(patch.created_at), :controller => 'patches',
     :action => 'show', :id => patch.id %>.
   <%= link_to('rand', {:controller => 'random',

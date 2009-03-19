@@ -49,35 +49,57 @@ div.fieldWithErrors textarea
 
 body
 {
- color: #000033; background-color: #ccccff; font-family: sans-serif;
+ color: #663; background-color: #cc9; font-family: sans-serif;
+}
+
+#header
+{
+}
+
+#container
+{
+
 }
 
 .sub
 {
- font-size: 80%; margin-top: 0; margin-bottom: 0; color: #333366; text-decoration: none;
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #663; text-decoration: none;
 }
 
 a.sub
 {
- font-size: 80%; margin-top: 0; margin-bottom: 0; color: #333366; text-decoration: none;
+ font-size: 80%; margin-top: 0; margin-bottom: 0; color: #663; text-decoration: none;
+}
+
+.sub a
+{
+ margin-top: 0; margin-bottom: 0; color: #903; text-decoration: none;
 }
 
 a.action, input.action
 {
- color: #eeeeff; background-color: #333366; text-decoration: none; padding: 2px; border: 0;
+ color: #cc9; background-color: #903; text-decoration: none; padding: 2px; border: 0; font-size: 90%;
 }
+
+#header a.action
+{
+    font-size: 100%;
+}
+
+
 
 a.action_l
 {
- color: #333366; background-color: #eeeeff; border: solid #333366 1px; text-decoration: none; padding: 2px;
+ color: #903; background-color: #cc9; border: solid #903 1px; text-decoration: none; padding: 2px;
 }
 
 div.centralbox
 {
     margin-top: 0;
-    border: 1px solid #333366;
+    border: 1px solid #903;
     width: 30em;
-    background-color: #eeeeff;
+    color: #000;
+    background-color: #cc9;
     padding: 2px;
 }
 
