@@ -108,7 +108,9 @@ div.centralbox
     width: 30em;
     color: #000;
     background-color: #eea;
-    padding: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 0;
 }
 
 .elm
