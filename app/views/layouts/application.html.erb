@@ -21,12 +21,13 @@
 		<div id="container">
 			<div id="header">
 				<p>
-					<%= link_to 'Random',
-					root_path ,
-    {:class => :action_l}%>
 					<%= link_to 'Newest',
 					{:controller => 'patches',
 					:action => 'index' } ,
+    {:class => :action_l}%>
+					<%= link_to 'Random',
+					    {:controller => 'random',
+					      :action => 'index' },
     {:class => :action_l}%>
 					<% if logged_in? %>
 					<%= link_to 'Logout', logout_path,

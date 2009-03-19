@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
 
   map.connect ':controller/feed', :action => "feed"
+  map.connect ':controller/for_feed', :action => "for_feed"
 
   # Restful Authentication Resources
   map.resources :users
@@ -17,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :patches
 
   # Home Page
-  map.root :controller => 'random', :action => 'index'
+  map.root :controller => 'patches', :action => 'index'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action'
