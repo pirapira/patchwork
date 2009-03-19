@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     :conditions => ["user_id = ?", params[:id]]
     @for_patches = @user.for_patches.paginate :page => params[:for_page], :per_page => 5
     @rss = { :controller => :users, :action => :feed, :id => params[:id] }
+    @rss2 = { :controller => :users, :action => :for_feed, :id => params[:id] }
   end
 
   def feed
