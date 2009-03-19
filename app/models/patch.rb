@@ -28,7 +28,8 @@ class Patch < ActiveRecord::Base
     return r
   end
   def forks
-    Patch.find(:all, :conditions => ["parent_id = ?", id])
+    Patch.find(:all, :conditions => ["parent_id = ?", id],
+               :order => "created_at desc")
   end
   def summary(size=26)
     ucontent = content(:plain).scan(/./u)
