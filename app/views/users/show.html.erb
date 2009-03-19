@@ -11,6 +11,10 @@
 <%= h(@user.identity_url) %>
 
 <h3>from <%= h(@user.disp_name) -%></h3>
+<p>(newest first) <%= link_to 'rss', {:action => :feed, :id => @user.id}
+-%>
+</p>
+
 <%= render :partial => "patches/largelist",
    :locals =>
      { :patches => @patches,
@@ -18,11 +22,10 @@
        :post => true, :pagenum => :page
       } %>
 
-<p>(newest first) <%= link_to 'rss', {:action => :feed, :id => @user.id}
+<h3>for <%= h(@user.disp_name) -%></h3>
+<p>(newest first) <%= link_to 'rss', {:action => :for_feed, :id => @user.id}
 -%>
 </p>
-
-<h3>for <%= h(@user.disp_name) -%></h3>
 <%= render :partial => "patches/largelist",
    :locals =>
      { :patches => @for_patches,
@@ -30,6 +33,3 @@
        :post => true, :pagenum => :for_page
       } %>
 
-<p>(newest first) <%= link_to 'rss', {:action => :for_feed, :id => @user.id}
--%>
-</p>
