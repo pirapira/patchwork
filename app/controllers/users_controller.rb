@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  require_role 'authenticated', :for_all_except => [:show, :feed]
+  require_role 'authenticated', :for_all_except => [:show, :feed, :for_feed]
 
   def new
     @user = User.new
