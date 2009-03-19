@@ -4,15 +4,18 @@
 <%= patch.content -%>
 <p class="sub">
 <% if patch.parent then %>
-  <%= link_to h("forked from ".scan(/./u) + patch.parent.summary), {:id => patch.parent_id},
+  <%= link_to h("forked from ".scan(/./u) + patch.parent.summary),
+  {:controller => :patches, :action => :show, :id => patch.parent_id},
   {:class => :sub} %>
 <br />
 <% elsif patch.added_below then %>
-  <%= link_to h("added below ".scan(/./u) + patch.added_below.summary), {:id => patch.added_below.id},
+  <%= link_to h("added below ".scan(/./u) + patch.added_below.summary),
+      {:controller => :patches, :action => :show, :id => patch.added_below.id},
   {:class => :sub} %>
 <br />
 <% elsif patch.added_above then %>
-  <%= link_to h("added above ".scan(/./u) + patch.added_above.summary), {:id => patch.added_above.id},
+  <%= link_to h("added above ".scan(/./u) + patch.added_above.summary),
+      {:controller => :patches, :action => :show, :id => patch.added_above.id},
   {:class => :sub} %>
 <br />
 <% end %>
