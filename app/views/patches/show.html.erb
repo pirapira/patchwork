@@ -15,8 +15,23 @@
     {:class => 'action'}
 -%></p>
 
+<div style="float: left">
 <%= render :partial => 'centralbox',
-	   :locals => { :float => true, :patch => @patch } %>
+	   :locals => { :patch => @patch } %>
+<p style="clear: left; padding-top: 0; margin-top: 0;">
+<%= link_to 'BELOW',
+    {:action => :new, :prepatch_id => @patch.id},
+    {:class => 'action'}
+ -%></p>
+<%= render :partial => "list",
+   :locals =>
+     { :patches => @postpatches,
+       :nothing => '(nothing below)',
+       :pagenum => :postpage,
+       :postonly => true
+ } %>
+</div>
+
 <p><%= link_to 'FORK', edit_patch_path, {:class => 'action'} %></p>
 
 <%= render :partial => "list",
@@ -26,18 +41,4 @@
        :pagenum => :forkpage
  } %>
 
-<p style="clear: left; padding-top: 0; margin-top: 0;">
-<%= link_to 'BELOW',
-    {:action => :new, :prepatch_id => @patch.id},
-    {:class => 'action'}
- -%></p>
-
-
-<%= render :partial => "list",
-   :locals =>
-     { :patches => @postpatches,
-       :nothing => '(nothing below)',
-       :pagenum => :postpage,
-       :postonly => true
- } %>
 </div>

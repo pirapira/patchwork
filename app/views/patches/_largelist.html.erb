@@ -3,27 +3,33 @@
 <% if patches.empty? -%>    
  <p><%= nothing -%></p>  
 <% else -%>    
-<table>
- <% patches.each do |patch| -%>      
+  <% patches.each do |patch| -%>      
+<div style="clear: left">
 <p style="margin-bottom: 0; padding-bottom: 0">
 <%= link_to 'ABOVE',
     {:controller => :patches, :action => :new, :postpatch_id => patch.id},
     {:class => 'action'}
 -%></p>
 
+<div style="float: left">
 <%= render :partial => 'patches/centralbox',
-	   :locals => { :float => true, :patch => patch } %>
-<p><%= link_to 'FORK', {:controller => "patches", :action => "edit",
-                        :id => patch.id }, {:class => 'action'} %></p>
-
-<p style="clear: left; padding-top: 0; margin-top: 0;">
+	   :locals => { :patch => patch } %>
+<p style="padding-top: 0; margin-top: 0;">
 <%= link_to 'BELOW',
     {:controller => :patches, :action => :new, :prepatch_id => patch.id},
     {:class => 'action'}
  -%></p>
+</div>
+<p><%= link_to 'FORK', {:controller => "patches", :action => "edit",
+                        :id => patch.id }, {:class => 'action'} %></p>
+</div>
  <% end -%>
-</table>
 <% end -%>
-<%= will_paginate patches, :previous_label => '<<', :next_label =>
-    '>>', :param_name => pagenum  if (defined? post or defined? postonly)
-%>
+
+<% if (defined? post or defined? postonly) then %>
+<p style="clear:left">
+<%= will_paginate patches, :previous_label => '<<',
+    :next_label => '>>', :param_name => pagenum  %>
+</p>
+<% end %>
+

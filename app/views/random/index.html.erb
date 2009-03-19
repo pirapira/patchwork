@@ -9,23 +9,27 @@
 
 <% @seq.each do |patch| %>
 
+<div style="clear:left">
 <p style="margin-bottom: 0; padding-bottom: 0">
 <%= link_to 'ABOVE',
     {:controller => :patches, :action => :new, :postpatch_id => patch.id},
     {:class => 'action'}
 -%></p>
 
+<div style="float:left">
 <%= render :partial => 'patches/centralbox',
-	   :locals => { :float => true, :patch => patch } %>
-<p><%= link_to 'FORK', {:controller => "patches", :action => "edit",
-                        :id => patch.id }, {:class => 'action'} %></p>
-
+	   :locals => { :patch => patch } %>
 <p style="clear: left; padding-top: 0; margin-top: 0;">
 <%= link_to 'BELOW',
     {:controller => :patches, :action => :new, :prepatch_id => patch.id},
     {:class => 'action'}
  -%></p>
+</div>
 
+<p><%= link_to 'FORK', {:controller => "patches", :action => "edit",
+                        :id => patch.id }, {:class => 'action'} %></p>
+
+</div>
 <% end %>
 
 <%= render :partial => "patches/list",
