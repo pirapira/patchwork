@@ -58,6 +58,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def for_patches
+    ps = Patch.find(:all).find_all { |p| (p.parent && p.parent.user == self) ||
+      (p.added_below && p.added_below.user == self) ||
+      (p.added_above && p.added_above.user == self)
+    }
+    ps = ps.reject { |p| p.user == self }
+    ps.sort { |a,b| b.created_at <=> a.created_at }
+  end
+
   protected
     
   def make_activation_code

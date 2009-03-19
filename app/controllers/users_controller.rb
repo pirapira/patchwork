@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @patches = Patch.paginate :page => params[:page],
     :order => "created_at DESC", :per_page => 5,
     :conditions => ["user_id = ?", params[:id]]
+    @for_patches = @user.for_patches.paginate :page => params[:for_page], :per_page => 5
     @rss = { :controller => :users, :action => :feed, :id => params[:id] }
   end
 

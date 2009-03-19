@@ -21,3 +21,15 @@
 <p>(newest first) <%= link_to 'rss', {:action => :feed, :id => @user.id}
 -%>
 </p>
+
+<h3>for <%= h(@user.disp_name) -%></h3>
+<%= render :partial => "patches/largelist",
+   :locals =>
+     { :patches => @for_patches,
+       :nothing => '(nothing yet)',
+       :post => true, :pagenum => :for_page
+      } %>
+
+<p>(newest first) <%= link_to 'rss', {:action => :for_feed, :id => @user.id}
+-%>
+</p>
