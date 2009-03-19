@@ -30,7 +30,7 @@
 					<% if logged_in? %>
 					<%= link_to 'Logout', logout_path,
     {:class => :action_l} %>
-					<%= link_to 'Me',
+					<%= link_to 'You',
      user_path(current_user),
     {:class => :action_l} %>
 					<% else %>
