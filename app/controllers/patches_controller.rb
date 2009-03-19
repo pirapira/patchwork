@@ -78,6 +78,10 @@ class PatchesController < ApplicationController
   end
 
   def send_trackback
+    if @patch.trackback_url.blank?
+      return
+    end
+    
     require 'net/http'
 
     to_url = @patch.trackback_url
