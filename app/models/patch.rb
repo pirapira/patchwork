@@ -64,7 +64,7 @@ class Patch < ActiveRecord::Base
   def for_whom
     return User.find(:first, :conditions => ["id = ?", for_cache]) if for_cached
 
-    self.for_cache
+    self.for_cache =
       if parent then parent.user.id
       elsif added_below then added_below.user.id
       elsif added_above then added_above.user.id
