@@ -58,6 +58,7 @@ class PatchesController < ApplicationController
     @patch = Patch.new(params[:patch])
     if old_version = Patch.find(params[:id])
       @patch.parent_id = old_version.id
+      @patch.trackback_url = nil
     else
       raise "invalid"
     end
