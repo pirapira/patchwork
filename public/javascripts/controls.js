@@ -585,6 +585,11 @@ Ajax.InPlaceEditor = Class.create({
     this.unregisterListeners();
   },
   enterEditMode: function(e) {
+    if (e) {
+	if (e.findElement().match('a')) {
+	    return;
+	}
+    }
     if (this._saving || this._editing) return;
     this._editing = true;
     this.triggerCallback('onEnterEditMode');
