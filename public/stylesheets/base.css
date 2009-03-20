@@ -115,6 +115,16 @@ div.centralbox
     padding-bottom: 0;
 }
 
+.buttons input, .buttons span
+{
+    vertical-align: top;
+}
+
+form a
+{
+    vertical-align: bottom;
+}
+
 .elm
 {
     text-decoration: none; color: #903; background-color: #cc9;
