@@ -20,9 +20,9 @@
   by <%= link_to h(patch.user.disp_name), user_path(patch.user) -%>
   at <%= link_to h(patch.created_at), :controller => 'patches',
     :action => 'show', :id => patch.id %>.
-  <%= link_to('random weave', {:controller => 'random',
-    :action => 'show', :id => patch.id}, {:class => "action"}) unless
-  (patch.after_patches.empty? && patch.before_patches.empty?) %>
   seen <%= pluralize(patch.view_count, 'time') %>.
+  <%= link_to('random weave', {:controller => 'random',
+    :action => 'show', :id => patch.id}, {:class => "action_l"}) unless
+  (patch.after_patches.empty? && patch.before_patches.empty?) %>
 </p>
 </div>
