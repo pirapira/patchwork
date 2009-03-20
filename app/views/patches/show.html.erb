@@ -15,14 +15,13 @@
     {:class => 'action'}
 -%></p>
 
-<div style="float: left">
+<div style="float: left; width: 30em">
 <%= render :partial => 'centralbox',
 	   :locals => { :patch => @patch } %>
-<p style="clear: left; padding-top: 0; margin-top: 0;">
 <%= link_to 'ADD BELOW',
     {:action => :new, :prepatch_id => @patch.id},
     {:class => 'action'}
- -%></p>
+ -%>
 <%= render :partial => "list",
    :locals =>
      { :patches => @postpatches,
