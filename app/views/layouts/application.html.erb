@@ -48,6 +48,9 @@
 				<%= yield :layout %>
 			</div>
 		</div>
+<p style="clear: left; border-top: solid 1px #903;"><% Patch.find(:all).each do |p| %>
+    <%= link_to p.views, {:controller => :patches,
+	  :action => :show, :id => p.id}, {:style => 'text-decoration: none;'} -%>  <% end %> views.</p>
 		<address class="sub" style="text-align:right; clear: left;">
 everything under <a rel="license"
  href="http://creativecommons.org/licenses/by-sa/3.0/us/"
