@@ -41,6 +41,12 @@
 					<% end %>
 					<%= link_to 'WRITE', new_patch_path,
     {:class => :action}%>
+					<% if APP_CONFIG[:about] then %>
+					  <%= link_to 'ABOUT',
+					{:controller => :patches,
+					:action => :show, :id =>
+					APP_CONFIG[:about]} -%>
+					<% end %>
 				</p>
 			</div>
 			<div id="content">
