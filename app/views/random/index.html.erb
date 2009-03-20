@@ -32,10 +32,12 @@
 </div>
 <% end %>
 
+<div sytle="clear: left">
 <%= render :partial => "patches/list",
    :locals =>
      { :patches => [].paginate,
        :nothing => '(nothing below)',
        :pagenum => nil
  } %>
+</div>
 
