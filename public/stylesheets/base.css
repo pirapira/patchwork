@@ -115,6 +115,11 @@ div.centralbox
     padding-bottom: 0;
 }
 
+.content
+{
+    cursor: vertical-text;
+}
+
 .buttons input, .buttons span
 {
     vertical-align: top;
