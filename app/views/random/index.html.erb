@@ -1,5 +1,18 @@
 <%= title "Random", :h2 %>
 
+<% @patch = Patch.new() %>
+<% form_for @patch do |f| %>
+	<%= f.error_messages %>
+	<%= text_area :patch, :content, {:rows => 2, :style => "width: 30em",
+       :focus => true} %>
+	<%= submit_tag 'put', {:style => 'font-size: 150%'} %> under <a rel="license"
+ href="http://creativecommons.org/licenses/by-sa/3.0/us/"
+><img alt="Creative Commons License"
+ style="border-width:0" src="/images/lic.png" /></a>
+	<%= hidden_field(:prepatch, :id) if @prepatch %>
+	<%= hidden_field(:postpatch, :id) if @postpatch %>
+<% end %>
+
 <%= render :partial => "patches/list",
    :locals =>
      { :patches => [].paginate,
