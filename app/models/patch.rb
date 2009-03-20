@@ -1,5 +1,6 @@
 class Patch < ActiveRecord::Base
   acts_as_textiled :content, :description
+  acts_as_viewed
 
   # Relationships
   belongs_to :user

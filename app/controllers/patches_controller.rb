@@ -39,6 +39,7 @@ class PatchesController < ApplicationController
 
   def show
     @patch = Patch.find(params[:id])
+    add_view @patch
     @prepatches = @patch.before_patches.paginate(:per_page => 5, :page => params[:prepage])
     @postpatches = @patch.after_patches.paginate(:per_page => 5, :page => params[:postpage])
     @forks = @patch.forks.paginate(:per_page => 5, :page => params[:forkpage])
@@ -46,6 +47,7 @@ class PatchesController < ApplicationController
 
   def index
     @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 5
+    @patches.each { |p| add_view p }
     @rss = { :controller => :patches, :action => :feed}
   end
 
@@ -72,6 +74,14 @@ class PatchesController < ApplicationController
   end
 
   protected
+
+  def add_view(p = @patch)
+    if current_user.nil? then
+      p.view request.remote_ip, current_user
+    else
+      p.view request.remote_ip
+    end
+  end
 
   def successful_save
     send_trackback

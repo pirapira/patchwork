@@ -23,5 +23,6 @@
   <%= link_to('random weave', {:controller => 'random',
     :action => 'show', :id => patch.id}, {:class => "action"}) unless
   (patch.after_patches.empty? && patch.before_patches.empty?) %>
+  seen <%= pluralize(patch.view_count, 'time') %>.
 </p>
 </div>
