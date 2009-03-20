@@ -44,8 +44,6 @@
 <% end %>
 </div>
 
-<p><%= link_to 'FORK', edit_patch_path, {:class => 'action'} %></p>
-
 <%= render :partial => "list",
    :locals =>
      { :patches => @forks,

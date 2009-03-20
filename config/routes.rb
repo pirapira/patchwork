@@ -17,6 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :patches
 
+  map.connect 'patches/:id', :controller => 'patches',  :action => 'update', :requirements => { :method => :post }
+
   # Home Page
   map.root :controller => 'patches', :action => 'index'
 

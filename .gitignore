@@ -30,3 +30,4 @@ db/*.sqlite3/.rake_tasks
 /db/migrate/20090319105424_add_trackback_url.rb~
 /db/test.sqlite3
 /db/migrate/20090320041739_add_viewing_table.rb~
+/app/views/patches/show_rich.erb~

@@ -1,5 +1,5 @@
 class PatchesController < ApplicationController
-  require_role 'authenticated', :for_all_except => [:show, :index, :feed, :new, :create, :edit, :update]
+  require_role 'authenticated', :for_all_except => [:show, :show_raw, :show_rich, :index, :feed, :new, :create, :edit, :update]
   
   def new
     @patch = Patch.new
@@ -45,6 +45,16 @@ class PatchesController < ApplicationController
     @forks = @patch.forks.paginate(:per_page => 5, :page => params[:forkpage])
   end
 
+  def show_raw
+    @text = Patch.find(params[:id]).content(:source)
+    render :layout => false
+  end
+
+  def show_rich
+    @text = Patch.find(params[:id]).content
+    render :layout => false
+  end
+
   def index
     @patches = Patch.paginate :page => params[:page], :order => "created_at DESC", :per_page => 5
     @patches.each { |p| add_view p }
@@ -85,6 +95,10 @@ class PatchesController < ApplicationController
 
   def successful_save
     send_trackback
+    if params[:inplace]
+      redirect_to :controller => :patches, :action => :show_rich, :id => params[:id]
+      return
+    end
     redirect_to :action => :show, :id => @patch.id
   end
 

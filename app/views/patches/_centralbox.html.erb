@@ -1,5 +1,24 @@
 <div class="centralbox">
+<% id = "patch-#{patch.id}" %>
+<div id="<%= id -%>">
 <%= patch.content -%>
+</div>
+<script type="text/javascript">
+ new Ajax.InPlaceEditor('<%= id -%>', '<%= url_for(
+					   :controller => :patches,
+					   :action => :update,
+					   :id => patch.id) -%>',
+ {rows:15,cols:70,loadTextURL:'<%= url_for :controller => :patches,
+				   :action => :show_raw, :id => patch.id -%>',
+ callback: function(form, value) { return 'authenticity_token=' +
+					   window._token +
+                                          '&patch[content]=' +
+					   encodeURIComponent(value) +
+ '&inplace=true'
+ },
+ onLeaveEditMode: function(form, value) { window.location.href = '/patches' ;}
+});
+</script>
 <p class="sub">
 <% if patch.parent then %>
   forked from <%= link_to h(patch.parent.summary),
