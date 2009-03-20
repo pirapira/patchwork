@@ -105,7 +105,7 @@ div.centralbox
 {
     margin-top: 0;
     border: 1px solid #903;
-    width: 30em;
+    width: 40em;
     color: #000;
     background-color: #eea;
     padding-left: 2px;
@@ -120,5 +120,5 @@ div.centralbox
 
 form.new_patch
 {
-width: 30em
+width: 40em
 }
