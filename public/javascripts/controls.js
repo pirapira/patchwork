@@ -500,6 +500,7 @@ Ajax.InPlaceEditor = Class.create({
     this._boundFailureHandler = this.handleAJAXFailure.bind(this);
     this._boundSubmitHandler = this.handleFormSubmission.bind(this);
     this._boundWrapperHandler = this.wrapUp.bind(this);
+    this._boundWrapperCHandler = this.wrapUpC.bind(this);
     this.registerListeners();
   },
   checkForEscapeOrReturn: function(e) {
@@ -581,7 +582,7 @@ Ajax.InPlaceEditor = Class.create({
   destroy: function() {
     if (this._oldInnerHTML)
       this.element.innerHTML = this._oldInnerHTML;
-    // this.leaveEditMode();
+    this.leaveEditMode(true);
     this.unregisterListeners();
   },
   enterEditMode: function(e) {
@@ -619,7 +620,7 @@ Ajax.InPlaceEditor = Class.create({
     }
   },
   handleFormCancellation: function(e) {
-    this.wrapUp();
+    this.wrapUpC();
     if (e) Event.stop(e);
   },
   handleFormSubmission: function(e) {
@@ -649,7 +650,7 @@ Ajax.InPlaceEditor = Class.create({
     }
     if (e) Event.stop(e);
   },
-  leaveEditMode: function() {
+  leaveEditMode: function(tf) {
     this.element.removeClassName(this.options.savingClassName);
     this.removeForm();
     this.leaveHover();
@@ -660,7 +661,9 @@ Ajax.InPlaceEditor = Class.create({
     this._saving = false;
     this._editing = false;
     this._oldInnerHTML = null;
-    this.triggerCallback('onLeaveEditMode');
+    if (tf) {
+	this.triggerCallback('onLeaveEditMode');
+    }
   },
   leaveHover: function(e) {
     if (this.options.hoverClassName)
@@ -745,7 +748,13 @@ Ajax.InPlaceEditor = Class.create({
     }.bind(this));
   },
   wrapUp: function(transport) {
-    this.leaveEditMode();
+    this.leaveEditMode(true);
+    // Can't use triggerCallback due to backward compatibility: requires
+    // binding + direct element
+    this._boundComplete(transport, this.element);
+  },
+  wrapUpC: function(transport) {
+    this.leaveEditMode(false);
     // Can't use triggerCallback due to backward compatibility: requires
     // binding + direct element
     this._boundComplete(transport, this.element);
