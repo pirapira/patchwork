@@ -581,7 +581,7 @@ Ajax.InPlaceEditor = Class.create({
   destroy: function() {
     if (this._oldInnerHTML)
       this.element.innerHTML = this._oldInnerHTML;
-    this.leaveEditMode();
+    // this.leaveEditMode();
     this.unregisterListeners();
   },
   enterEditMode: function(e) {
