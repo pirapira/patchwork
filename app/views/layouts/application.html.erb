@@ -55,6 +55,13 @@
 				<%= yield :layout %>
 			</div>
 		</div>
+
+<p style="margin-top: 20px;">
+<% User.find(:all).each do |u| %> 
+<%= link_to u.disp_name, user_path(u) -%>
+<% end %>
+</p>
+
 		<address class="sub" style="text-align:right; clear: left;">
 everything under <a rel="license"
  href="http://creativecommons.org/licenses/by-sa/3.0/us/"
