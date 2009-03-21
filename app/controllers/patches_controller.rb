@@ -135,7 +135,8 @@ class PatchesController < ApplicationController
   def save_tmp_redirect
     if params[:inplace] then
       flash[:warning] = 'please login before editing'
-      redirect_to :controller => :patches, :action => :show_righ, :id => params[:id]
+      redirect_to :controller => :patches, :action => :show_rich, :id => params[:id]
+      return
     end
     session[:writing] = @patch
     session[:prepatch] = @prepatch
