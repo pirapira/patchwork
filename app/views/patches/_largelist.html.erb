@@ -22,7 +22,7 @@
 </div>
 <%= render :partial => "list",
    :locals =>
-     { :patches => [],
+     { :patches => patch.forks,
        :nothing => '(no forks)',
        :paginate => false } %>
 </div>
