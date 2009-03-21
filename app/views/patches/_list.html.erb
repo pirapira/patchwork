@@ -1,5 +1,6 @@
-<%= will_paginate patches, :previous_label => '<<', :next_label =>
-    '>>', :param_name => pagenum unless defined? postonly %>
+<%= if (not defined? postonly) and defined? pagenum then
+     will_paginate patches, :previous_label => '<<',
+     :next_label => '>>', :param_name => pagenum end %>
 <% if patches.empty? -%>    
  <p><%= nothing -%></p>  
 <% else -%>    
@@ -16,5 +17,6 @@
 </table>
 <% end -%>
 <%= will_paginate patches, :previous_label => '<<', :next_label =>
-    '>>', :param_name => pagenum  if (defined? post or defined? postonly)
+    '>>', :param_name => pagenum  if (
+  defined? pagenum and (defined? post or defined? postonly and not (defined? paginate?)))
 %>
