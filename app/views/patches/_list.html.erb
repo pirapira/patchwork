@@ -6,8 +6,8 @@
 <table>
  <% patches.each do |patch| -%>      
    <tr>        
-     <td><%= link_to h(patch.summary), patch_path(patch),
-	     {:class => :elm, :title => h(patch.content(:plain)) } -%></td>
+     <td><%= link_to patch.summary, patch_path(patch),
+	     {:class => :elm, :title => patch.content(:plain) } -%></td>
      <td class="sub"><%= link_to h(timeago patch.created_at), patch_path(patch),
      {:class => :elm} -%></td>
      <td class="sub"><%= link_to "by "+h(patch.user.disp_name), user_path(patch.user), {:class => :elm} -%></td>

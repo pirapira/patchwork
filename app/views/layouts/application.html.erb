@@ -56,7 +56,7 @@
 			</div>
 		</div>
 
-<p style="margin-top: 20px;">
+<p style="padding-top: 50px; clear: left;">
 <% User.find(:all).each do |u| %> 
 <%= link_to u.disp_name, user_path(u) -%>
 <% end %>
